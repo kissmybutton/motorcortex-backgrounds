@@ -1,7 +1,7 @@
 # motorcortex-backgrounds
 
 ## Demo
-[Check it out here](https://kissmybutton.github.io/motorcortex-abstracts/demo/index.html)
+[Check it out here](https://kissmybutton.github.io/motorcortex-backgrounds/demo/index.html)
 
 ## Installation
 
