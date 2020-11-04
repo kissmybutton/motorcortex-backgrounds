@@ -13,8 +13,6 @@ class RowReveal extends MotorCortex.API.Clip {
   }
 
   get html() {
-
-
     return `
     <div class="wrapper">
       <div class="bg-wrapper">
@@ -34,7 +32,6 @@ class RowReveal extends MotorCortex.API.Clip {
   }
 
   get css() {
-   
     return `
     .wrapper{
       width: ${this.attrs.width}px;
@@ -45,7 +42,7 @@ class RowReveal extends MotorCortex.API.Clip {
     }
     .bg-wrapper{
       width: ${this.attrs.width}px;
-      height: ${this.attrs.height/4}px;
+      height: ${this.attrs.height / 4}px;
       display:flex;
       font-family: 'Poppins', sans-serif;
       position: relative;
@@ -63,49 +60,48 @@ class RowReveal extends MotorCortex.API.Clip {
       top:0
     }
     .bg-1{
-      top:-${this.attrs.height-(this.attrs.height/4)*3}px;
+      top:-${this.attrs.height - (this.attrs.height / 4) * 3}px;
     }
     .bg-2{
-      top:-${this.attrs.height-(this.attrs.height/4)*2}px;
+      top:-${this.attrs.height - (this.attrs.height / 4) * 2}px;
     }
     .bg-3{
-      top:-${this.attrs.height-this.attrs.height/4}px;
+      top:-${this.attrs.height - this.attrs.height / 4}px;
     }
       
   `;
   }
-
 
   buildTree() {
     const bgPositionOneIn = new Anime.Anime(
       {
         animatedAttrs: {
           left: `0px`
-        },
+        }
       },
       {
-        duration: 1000*this.attrs.timing,
+        duration: 1000 * this.attrs.timing,
         selector: ".bg-wrapper",
         easing: this.attrs.easing,
-        delay:`@stagger(0, ${Math.floor(500*this.attrs.timing)},0)`
+        delay: `@stagger(0, ${Math.floor(500 * this.attrs.timing)},0)`
       }
     );
-    this.addIncident(bgPositionOneIn,0);
-    if(this.attrs.bgOut === true){
+    this.addIncident(bgPositionOneIn, 0);
+    if (this.attrs.bgOut === true) {
       const bgPositionOneOut = new Anime.Anime(
         {
           animatedAttrs: {
             left: `-${this.attrs.width}px`
-          },
+          }
         },
         {
-          duration: 1000*this.attrs.timing,
+          duration: 1000 * this.attrs.timing,
           selector: ".bg-wrapper",
           easing: this.attrs.easing,
-          delay:`@stagger(0, ${Math.floor(500*this.attrs.timing)},0)`
+          delay: `@stagger(0, ${Math.floor(500 * this.attrs.timing)},0)`
         }
       );
-      this.addIncident(bgPositionOneOut,this.attrs.exitStart);
+      this.addIncident(bgPositionOneOut, this.attrs.exitStart);
     }
   }
 }

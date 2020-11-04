@@ -71,14 +71,13 @@ const BgOpener = new Plugin.BgOpener(
     width: 512,
     height: 288,
     bgUrl:
-    "https://kissmybutton.github.io/motorcortex-slides/demo/kissmybutonbg.jpg",
-    timing:0.3,
-    easing:"easeInQuad",
-    exitStart:2000
+      "https://kissmybutton.github.io/motorcortex-slides/demo/kissmybutonbg.jpg",
+    timing: 0.3,
+    easing: "easeInQuad",
+    exitStart: 2000
   },
   {
-    selector: ".container1",
-   
+    selector: ".container1"
   }
 );
 const TwoSidesReveal = new Plugin.TwoSidesReveal(
@@ -86,13 +85,12 @@ const TwoSidesReveal = new Plugin.TwoSidesReveal(
     width: 512,
     height: 288,
     bgUrl:
-    "https://kissmybutton.github.io/motorcortex-slides/demo/kissmybutonbg.jpg",
-    timing:1,
-    easing:"easeInQuad",
+      "https://kissmybutton.github.io/motorcortex-slides/demo/kissmybutonbg.jpg",
+    timing: 1,
+    easing: "easeInQuad"
   },
   {
-    selector: ".container2",
-   
+    selector: ".container2"
   }
 );
 
@@ -101,15 +99,14 @@ const RowReveal = new Plugin.RowReveal(
     width: 512,
     height: 288,
     bgUrl:
-    "https://kissmybutton.github.io/motorcortex-slides/demo/kissmybutonbg.jpg",
-    timing:1,
-    easing:"easeOutQuart",
-    exitStart:2000,
+      "https://kissmybutton.github.io/motorcortex-slides/demo/kissmybutonbg.jpg",
+    timing: 1,
+    easing: "easeOutQuart",
+    exitStart: 2000,
     bgOut: true
   },
   {
-    selector: ".container3",
-   
+    selector: ".container3"
   }
 );
 
@@ -118,15 +115,14 @@ const ColumnReveal = new Plugin.ColumnReveal(
     width: 512,
     height: 288,
     bgUrl:
-    "https://kissmybutton.github.io/motorcortex-slides/demo/kissmybutonbg.jpg",
-    timing:1,
-    easing:"easeOutQuart",
-    exitStart:2000,
+      "https://kissmybutton.github.io/motorcortex-slides/demo/kissmybutonbg.jpg",
+    timing: 1,
+    easing: "easeOutQuart",
+    exitStart: 2000,
     bgOut: true
   },
   {
-    selector: ".container4",
-   
+    selector: ".container4"
   }
 );
 
@@ -134,19 +130,17 @@ const ThreeSidesReveal = new Plugin.ThreeSidesReveal(
   {
     width: 512,
     height: 288,
-    bgUrl:
-    "https://kissmybutton.github.io/motorcortex-slides/demo/bg3.jpg",
-    timing:1,
+    bgUrl: "https://kissmybutton.github.io/motorcortex-slides/demo/bg3.jpg",
+    timing: 1,
     overlayColor: "#ff0000",
     grid: true,
-    gridTiming:1,
+    gridTiming: 1,
     gridColor: "#000",
     columns: 6,
-    rows : 4,
+    rows: 4
   },
   {
-    selector: ".container5",
-   
+    selector: ".container5"
   }
 );
 
@@ -156,12 +150,11 @@ const Grid = new Plugin.Grid(
     height: 288,
     color: "#000",
     columns: 6,
-    rows : 4,
-    timing:1,
+    rows: 4,
+    timing: 1
   },
   {
-    selector: ".container6",
-   
+    selector: ".container6"
   }
 );
 
@@ -170,8 +163,6 @@ clip.addIncident(TwoSidesReveal, 0);
 clip.addIncident(RowReveal, 0);
 clip.addIncident(ColumnReveal, 0);
 clip.addIncident(ThreeSidesReveal, 0);
-clip.addIncident(Grid,0)
+clip.addIncident(Grid, 0);
 
-// console.log(clip)
 new Player({ clip, timeFormat: "ms" });
-

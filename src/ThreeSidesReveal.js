@@ -1,5 +1,5 @@
 const MotorCortex = require("@kissmybutton/motorcortex");
-const grid =  require("./Grid");
+const grid = require("./Grid");
 const AnimeDefinition = require("@kissmybutton/motorcortex-anime");
 const Anime = MotorCortex.loadPlugin(AnimeDefinition);
 class ThreeSidesReveal extends MotorCortex.API.Clip {
@@ -13,8 +13,6 @@ class ThreeSidesReveal extends MotorCortex.API.Clip {
   }
 
   get html() {
-
-
     return `
     <div class="wrapper">
       <div class="bg-wrapper bg-wrapper-0">
@@ -35,7 +33,6 @@ class ThreeSidesReveal extends MotorCortex.API.Clip {
   }
 
   get css() {
-   
     return `
     .wrapper{
       width: ${this.attrs.width}px;
@@ -54,14 +51,14 @@ class ThreeSidesReveal extends MotorCortex.API.Clip {
     }
 
     .bg-wrapper-0{
-      height: ${this.attrs.height*0.65}px;
+      height: ${this.attrs.height * 0.65}px;
     }
     .bg-wrapper-1{
-      height: ${this.attrs.height*0.35}px;
+      height: ${this.attrs.height * 0.35}px;
     }
     .bg-wrapper-in{
-      width: ${this.attrs.width/2}px;
-      height: ${this.attrs.height*0.65}px;
+      width: ${this.attrs.width / 2}px;
+      height: ${this.attrs.height * 0.65}px;
       display:flex;
       font-family: 'Poppins', sans-serif;
       position: relative;
@@ -81,10 +78,10 @@ class ThreeSidesReveal extends MotorCortex.API.Clip {
       left:0
     }
     .bg-1{
-      left:-${this.attrs.width/2}px;
+      left:-${this.attrs.width / 2}px;
     }
     .bg-2{
-      top:-${this.attrs.height*0.65}px;
+      top:-${this.attrs.height * 0.65}px;
     }
     .bg-in{
       background:${this.attrs.overlayColor};
@@ -95,142 +92,127 @@ class ThreeSidesReveal extends MotorCortex.API.Clip {
   `;
   }
 
-
   buildTree() {
     const bgWrapperBgColor = new Anime.Anime(
       {
         animatedAttrs: {
-          opacity: 0,
+          opacity: 0
         },
-        initialValues:{
-          opacity: 1,
-          
+        initialValues: {
+          opacity: 1
         }
       },
       {
-        duration: 1000*this.attrs.timing,
+        duration: 1000 * this.attrs.timing,
         selector: ".bg-in",
         easing: "easeOutQuart",
-        delay:`@stagger(200, ${Math.floor(500*this.attrs.timing)},0)`
+        delay: `@stagger(200, ${Math.floor(500 * this.attrs.timing)},0)`
       }
     );
-    this.addIncident(bgWrapperBgColor,0);
+    this.addIncident(bgWrapperBgColor, 0);
     const bgWrapperOpacity = new Anime.Anime(
       {
         animatedAttrs: {
-          opacity: 1,
-       
+          opacity: 1
         },
-        initialValues:{
-          opacity: 0,
-          
+        initialValues: {
+          opacity: 0
         }
       },
       {
-        duration: 1000*this.attrs.timing,
+        duration: 1000 * this.attrs.timing,
         selector: ".bg-wrapper-in",
         easing: "easeOutQuart",
-        delay:`@stagger(0, ${Math.floor(500*this.attrs.timing)},0)`
+        delay: `@stagger(0, ${Math.floor(500 * this.attrs.timing)},0)`
       }
     );
-    this.addIncident(bgWrapperOpacity,100);
+    this.addIncident(bgWrapperOpacity, 100);
 
     const bgOne = new Anime.Anime(
       {
         animatedAttrs: {
-          left: "0px",
-       
+          left: "0px"
         },
-        initialValues:{
-          left:`-${this.attrs.width/2}px`,
-          
+        initialValues: {
+          left: `-${this.attrs.width / 2}px`
         }
       },
       {
-        duration: 1400*this.attrs.timing,
+        duration: 1400 * this.attrs.timing,
         selector: ".bg-0",
-        easing: "easeOutQuart",
-        
+        easing: "easeOutQuart"
       }
     );
-    this.addIncident(bgOne,0);
+    this.addIncident(bgOne, 0);
 
     const bgTwo = new Anime.Anime(
       {
         animatedAttrs: {
-          top: `0px`,
-       
+          top: `0px`
         },
-        initialValues:{
-          top:`-${this.attrs.height*0.65}px`,
-          
+        initialValues: {
+          top: `-${this.attrs.height * 0.65}px`
         }
       },
       {
-        duration: 1000*this.attrs.timing,
+        duration: 1000 * this.attrs.timing,
         selector: ".bg-1",
-        easing: "easeOutQuart",
-        
+        easing: "easeOutQuart"
       }
     );
-    this.addIncident(bgTwo,400);
- 
+    this.addIncident(bgTwo, 400);
+
     const bgThree = new Anime.Anime(
       {
         animatedAttrs: {
-          left: `0px`,
-       
+          left: `0px`
         },
-        initialValues:{
-          left:`-${this.attrs.width/2}px`,
-          
+        initialValues: {
+          left: `-${this.attrs.width / 2}px`
         }
       },
       {
-        duration: 1500*this.attrs.timing,
+        duration: 1500 * this.attrs.timing,
         selector: ".bg-2",
-        easing: "easeOutQuart",
-        
+        easing: "easeOutQuart"
       }
     );
-    this.addIncident(bgThree,400);
+    this.addIncident(bgThree, 400);
     const bgScale = new Anime.Anime(
       {
         animatedAttrs: {
           transform: {
-            scale : 1
+            scale: 1
           }
-       
         },
-        initialValues:{
+        initialValues: {
           transform: {
-            scale : 1.2
+            scale: 1.2
           }
-          
         }
       },
       {
-        duration: 3600*this.attrs.timing,
-        selector: ".bg",    
+        duration: 3600 * this.attrs.timing,
+        selector: ".bg"
       }
     );
-    this.addIncident(bgScale,1000);
-    if(this.attrs.grid === true){
+    this.addIncident(bgScale, 1000);
+    if (this.attrs.grid === true) {
       const Grid = new grid(
         {
           width: this.attrs.width,
           height: this.attrs.height,
           color: this.attrs.gridColor,
           columns: this.attrs.columns,
-          rows : this.attrs.rows,
-          timing:this.attrs.gridTiming,
+          rows: this.attrs.rows,
+          timing: this.attrs.gridTiming
         },
         {
-          selector: ".bg", 
+          selector: ".bg"
         }
       );
-     
-      this.addIncident(Grid,0)
+
+      this.addIncident(Grid, 0);
     }
   }
 }

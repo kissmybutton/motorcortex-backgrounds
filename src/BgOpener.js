@@ -13,8 +13,6 @@ class BgOpener extends MotorCortex.API.Clip {
   }
 
   get html() {
-
-
     return `
     <div class="wrapper">
       <div class="bg-wrapper bg-wrapper-0">
@@ -29,7 +27,6 @@ class BgOpener extends MotorCortex.API.Clip {
   }
 
   get css() {
-   
     return `
     .wrapper{
       width: ${this.attrs.width}px;
@@ -64,11 +61,11 @@ class BgOpener extends MotorCortex.API.Clip {
           top: `${0}px`
         },
         initialValues: {
-          top: `-${this.attrs.height/2}px`
+          top: `-${this.attrs.height / 2}px`
         }
       },
       {
-        duration: 1000*this.attrs.timing,
+        duration: 1000 * this.attrs.timing,
         selector: ".bg-0",
         easing: this.attrs.easing
       }
@@ -78,33 +75,33 @@ class BgOpener extends MotorCortex.API.Clip {
     const bgPositionOne = new Anime.Anime(
       {
         animatedAttrs: {
-          top: `-${this.attrs.height/2}px`
+          top: `-${this.attrs.height / 2}px`
         },
         initialValues: {
-          top: `-${this.attrs.height/2}px`
+          top: `-${this.attrs.height / 2}px`
         }
       },
       {
-        duration: 1000*this.attrs.timing,
+        duration: 1000 * this.attrs.timing,
         selector: ".bg-1",
         easing: this.attrs.easing
       }
     );
     this.addIncident(bgPositionOne, 0);
-    
+
     const wrapperHeight = new Anime.Anime(
       {
         animatedAttrs: {
-          height: `${this.attrs.height/2}px`,
+          height: `${this.attrs.height / 2}px`,
           top: `${0}px`
         },
         initialValues: {
           height: `${0}px`,
-          top: `${this.attrs.height/2}px`
+          top: `${this.attrs.height / 2}px`
         }
       },
       {
-        duration: 1000*this.attrs.timing,
+        duration: 1000 * this.attrs.timing,
         selector: ".bg-wrapper",
         easing: this.attrs.easing
       }
@@ -115,7 +112,7 @@ class BgOpener extends MotorCortex.API.Clip {
       {
         animatedAttrs: {
           // height: `${this.attrs.height/2}px`,
-          top: `-${this.attrs.height/2}px`
+          top: `-${this.attrs.height / 2}px`
         },
         initialValues: {
           // height: `${0}px`,
@@ -123,7 +120,7 @@ class BgOpener extends MotorCortex.API.Clip {
         }
       },
       {
-        duration: 1000*this.attrs.timing,
+        duration: 1000 * this.attrs.timing,
         selector: ".bg-wrapper-0",
         easing: this.attrs.easing
       }
@@ -134,7 +131,7 @@ class BgOpener extends MotorCortex.API.Clip {
       {
         animatedAttrs: {
           // height: `${this.attrs.height/2}px`,
-          top: `${this.attrs.height/2}px`
+          top: `${this.attrs.height / 2}px`
         },
         initialValues: {
           // height: `${0}px`,
@@ -142,7 +139,7 @@ class BgOpener extends MotorCortex.API.Clip {
         }
       },
       {
-        duration: 1000*this.attrs.timing,
+        duration: 1000 * this.attrs.timing,
         selector: ".bg-wrapper-1",
         easing: this.attrs.easing
       }
@@ -152,14 +149,14 @@ class BgOpener extends MotorCortex.API.Clip {
     const bgPositionOut = new Anime.Anime(
       {
         animatedAttrs: {
-          top: `${this.attrs.height/2}px`
-        },
+          top: `${this.attrs.height / 2}px`
+        }
         // initialValues: {
         //   top: `-${this.attrs.height/2}px`
         // }
       },
       {
-        duration: 1000*this.attrs.timing,
+        duration: 1000 * this.attrs.timing,
         selector: ".bg-0",
         easing: this.attrs.easing
       }
@@ -172,11 +169,11 @@ class BgOpener extends MotorCortex.API.Clip {
           top: `-${this.attrs.height}px`
         },
         initialValues: {
-          top: `-${this.attrs.height/2}px`
+          top: `-${this.attrs.height / 2}px`
         }
       },
       {
-        duration: 1000*this.attrs.timing,
+        duration: 1000 * this.attrs.timing,
         selector: ".bg-1",
         easing: this.attrs.easing
       }

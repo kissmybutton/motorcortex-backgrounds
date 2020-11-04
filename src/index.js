@@ -1,9 +1,9 @@
 const BgOpener = require("./BgOpener");
-const TwoSidesReveal = require("./TwoSidesReveal")
-const ColumnReveal = require("./ColumnReveal")
-const RowReveal =require("./RowReveal")
-const ThreeSidesReveal = require("./ThreeSidesReveal")
-const Grid =require("./Grid")
+const TwoSidesReveal = require("./TwoSidesReveal");
+const ColumnReveal = require("./ColumnReveal");
+const RowReveal = require("./RowReveal");
+const ThreeSidesReveal = require("./ThreeSidesReveal");
+const Grid = require("./Grid");
 const {
   BgOpenerValidation,
   TwoSidesRevealValidation,
@@ -45,6 +45,6 @@ module.exports = {
       exportable: Grid,
       name: "Grid",
       attributesValidationRules: { ...GridValidation }
-    },
+    }
   ]
 };

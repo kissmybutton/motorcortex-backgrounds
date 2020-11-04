@@ -13,8 +13,6 @@ class TwoSidesReveal extends MotorCortex.API.Clip {
   }
 
   get html() {
-
-
     return `
     <div class="wrapper">
       <div class="bg-wrapper bg-wrapper-0">
@@ -29,7 +27,6 @@ class TwoSidesReveal extends MotorCortex.API.Clip {
   }
 
   get css() {
-   
     return `
     .wrapper{
       width: ${this.attrs.width}px;
@@ -47,10 +44,10 @@ class TwoSidesReveal extends MotorCortex.API.Clip {
       overflow: hidden;
     }
     .bg-wrapper-0{
-      right: ${this.attrs.width/2}px;
+      right: ${this.attrs.width / 2}px;
     }
     .bg-wrapper-1{
-      left: ${this.attrs.width/2}px;
+      left: ${this.attrs.width / 2}px;
     }
     .bg{
       width: ${this.attrs.width}px;
@@ -64,34 +61,33 @@ class TwoSidesReveal extends MotorCortex.API.Clip {
   }
 
   buildTree() {
-
     const bgPositionLeft = new Anime.Anime(
       {
         animatedAttrs: {
-          left:  `${this.attrs.width/2}px`
+          left: `${this.attrs.width / 2}px`
         },
         initialValues: {
           left: `${this.attrs.width}px`
         }
       },
       {
-        duration: 1000*this.attrs.timing,
+        duration: 1000 * this.attrs.timing,
         selector: ".bg-0",
-        easing: this.attrs.easing 
+        easing: this.attrs.easing
       }
     );
     this.addIncident(bgPositionLeft, 0);
     const bgPositionRigth = new Anime.Anime(
       {
         animatedAttrs: {
-          right:  `${this.attrs.width/2}px`
+          right: `${this.attrs.width / 2}px`
         },
         initialValues: {
           right: `${this.attrs.width}px`
         }
       },
       {
-        duration: 1000*this.attrs.timing,
+        duration: 1000 * this.attrs.timing,
         selector: ".bg-1",
         easing: this.attrs.easing
       }

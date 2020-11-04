@@ -13,13 +13,11 @@ class Grid extends MotorCortex.API.Clip {
   }
 
   get html() {
-    let gridList = [];
-    const items = this.attrs.columns*this.attrs.rows
-    for (let i = 0; i < items ; i++) {
-      
+    const gridList = [];
+    const items = this.attrs.columns * this.attrs.rows;
+    for (let i = 0; i < items; i++) {
       gridList.push(` <div  class="grid grid-${i}"> </div> `);
     }
-
 
     return `
     <div class="wrapper">
@@ -29,7 +27,6 @@ class Grid extends MotorCortex.API.Clip {
   }
 
   get css() {
-   
     return `
     .wrapper{
       width: ${this.attrs.width}px;
@@ -41,33 +38,32 @@ class Grid extends MotorCortex.API.Clip {
     }
     .grid{
       background: ${this.attrs.color};
-      width: ${this.attrs.width/this.attrs.columns}px;
-      height: ${this.attrs.height/this.attrs.rows}px;
+      width: ${this.attrs.width / this.attrs.columns}px;
+      height: ${this.attrs.height / this.attrs.rows}px;
     }
       
   `;
   }
 
-
   buildTree() {
-        
     const gridOpacity = new Anime.Anime(
       {
         animatedAttrs: {
-          opacity: 0,
+          opacity: 0
         },
-        initialValues:{
-          opacity: 0.7,
+        initialValues: {
+          opacity: 0.7
         }
       },
       {
-        duration: 1000*this.attrs.timing,
+        duration: 1000 * this.attrs.timing,
         selector: ".grid",
-        delay:`@expression(randomInt(0,${Math.floor(1000*this.attrs.timing)}))`
+        delay: `@expression(randomInt(0,${Math.floor(
+          1000 * this.attrs.timing
+        )}))`
       }
     );
-    this.addIncident(gridOpacity,0);
- 
+    this.addIncident(gridOpacity, 0);
   }
 }
 
