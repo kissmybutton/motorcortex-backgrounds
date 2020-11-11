@@ -2,7 +2,7 @@ const MotorCortex = require("@kissmybutton/motorcortex");
 const AnimeDefinition = require("@kissmybutton/motorcortex-anime");
 const Anime = MotorCortex.loadPlugin(AnimeDefinition);
 
-class BgOpener extends MotorCortex.API.Clip {
+class BgOpener extends MotorCortex.HTMLClip {
   get font() {
     return [
       {

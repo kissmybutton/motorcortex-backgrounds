@@ -2,7 +2,7 @@ const MotorCortex = require("@kissmybutton/motorcortex");
 const grid = require("./Grid");
 const AnimeDefinition = require("@kissmybutton/motorcortex-anime");
 const Anime = MotorCortex.loadPlugin(AnimeDefinition);
-class ThreeSidesReveal extends MotorCortex.API.Clip {
+class ThreeSidesReveal extends MotorCortex.HTMLClip {
   get font() {
     return [
       {
