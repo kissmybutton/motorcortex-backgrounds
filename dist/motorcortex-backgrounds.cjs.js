@@ -2,11 +2,11 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-var MC = require('@kissmybutton/motorcortex');
+var MotorCortex = require('@kissmybutton/motorcortex');
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
-var MC__default = /*#__PURE__*/_interopDefaultLegacy(MC);
+var MotorCortex__default = /*#__PURE__*/_interopDefaultLegacy(MotorCortex);
 
 function _classCallCheck(instance, Constructor) {
   if (!(instance instanceof Constructor)) {
@@ -274,7 +274,14 @@ function _createSuper(Derived) {
   };
 }
 /*
- * anime.js v3.1.0
+ * anime.js v3.1.4
+ * (c) 2020 Julian Garnier
+ * Released under the MIT license
+ * animejs.com
+ */
+
+/*
+ * anime.js v3.1.2
  * (c) 2020 Julian Garnier
  * Released under the MIT license
  * animejs.com
@@ -934,7 +941,10 @@ function createNewInstance(params) {
 
 
 function anime(params) {
-  if (params === void 0) params = {};
+  if (params === void 0) {
+    params = {};
+  }
+
   var children,
       childrenLength = 0;
   var resolve = null;
@@ -1204,23 +1214,25 @@ function getParentSvg(pathEl, svgData) {
   };
 }
 
-function getPath(path, percent) {
-  var pathEl = is.str(path) ? selectString(path)[0] : path;
-  var p = percent || 100;
-  return function (property) {
-    return {
-      property: property,
-      el: pathEl,
-      svg: getParentSvg(pathEl),
-      totalLength: getTotalLength(pathEl) * (p / 100)
-    };
+function getPath(path) {
+  return {
+    el: path,
+    svg: getParentSvg(path),
+    totalLength: getTotalLength(path),
+    deltaCorrections: {
+      x: 4,
+      y: 5
+    }
   };
 }
 
 function getPathProgress(path, progress, isPathTargetInsideSVG) {
   function point(offset) {
     if (offset === void 0) offset = 0;
-    var l = progress + offset >= 1 ? progress + offset : 0;
+
+    var _progress = progress * path.totalLength;
+
+    var l = _progress + offset >= 1 ? _progress + offset : 0;
     return path.el.getPointAtLength(l);
   }
 
@@ -1230,17 +1242,11 @@ function getPathProgress(path, progress, isPathTargetInsideSVG) {
   var p1 = point(+1);
   var scaleX = isPathTargetInsideSVG ? 1 : svg.w / svg.vW;
   var scaleY = isPathTargetInsideSVG ? 1 : svg.h / svg.vH;
-
-  switch (path.property) {
-    case 'x':
-      return (p.x - svg.x) * scaleX;
-
-    case 'y':
-      return (p.y - svg.y) * scaleY;
-
-    case 'angle':
-      return Math.atan2(p1.y - p0.y, p1.x - p0.x) * 180 / Math.PI;
-  }
+  return {
+    x: (p.x - svg.x) * scaleX,
+    y: (p.y - svg.y) * scaleY,
+    angle: Math.atan2(p1.y - p0.y, p1.x - p0.x) * 180 / Math.PI
+  };
 }
 
 anime.version = '3.1.0';
@@ -1250,6 +1256,7 @@ anime.convertPx = convertPxToUnit;
 anime.penner = penner;
 anime.path = getPath;
 anime.getPathProgress = getPathProgress;
+var anime_es = anime;
 var transform = ["translateX", "translateY", "translateZ", "rotate", "rotateX", "rotateY", "rotateZ", "scale", "scaleX", "scaleY", "scaleZ", "skewX", "skewY", "perspective"];
 var compositeAttributes = {
   transform: transform
@@ -1295,8 +1302,8 @@ function getMatrix2D(win, element) {
 
 var Anime =
 /*#__PURE__*/
-function (_MC$Effect) {
-  _inherits$1(Anime, _MC$Effect);
+function (_MotorCortex$Effect) {
+  _inherits$1(Anime, _MotorCortex$Effect);
 
   var _super = _createSuper(Anime);
 
@@ -1325,7 +1332,7 @@ function (_MC$Effect) {
         options[this.attributeKey] = [this.getInitialValue(), this.targetValue];
       }
 
-      this.target = anime(_objectSpread2$1({
+      this.target = anime_es(_objectSpread2$1({
         autoplay: false,
         duration: this.props.duration,
         easing: "linear",
@@ -1344,14 +1351,14 @@ function (_MC$Effect) {
           if (Object.prototype.hasOwnProperty.call(currentTransform, transform[i])) {
             obj[transform[i]] = currentTransform[transform[i]];
           } else {
-            obj[transform[i]] = anime.get(this.element, transform[i]);
+            obj[transform[i]] = anime_es.get(this.element, transform[i]);
           }
         }
 
         return obj;
       }
 
-      return anime.get(this.element, this.attributeKey);
+      return anime_es.get(this.element, this.attributeKey);
     }
     /**
      * @param {number} f
@@ -1365,7 +1372,52 @@ function (_MC$Effect) {
   }]);
 
   return Anime;
-}(MC__default['default'].Effect);
+}(MotorCortex__default['default'].Effect);
+/**
+ * Takes as attributes:
+ * {
+ *  animatedAttrs: {
+ *      positionOn: {
+ *          pathElement: "selector of the path element"
+ *      }
+ *  }
+ * }
+ }
+**/
+
+
+var MotionPath =
+/*#__PURE__*/
+function (_MotorCortex$Effect) {
+  _inherits$1(MotionPath, _MotorCortex$Effect);
+
+  var _super = _createSuper(MotionPath);
+
+  function MotionPath() {
+    _classCallCheck$1(this, MotionPath);
+
+    return _super.apply(this, arguments);
+  }
+
+  _createClass$1(MotionPath, [{
+    key: "onGetContext",
+    value: function onGetContext() {
+      var svgEl = this.context.getElements(this.targetValue.pathElement)[0];
+      this.path = anime_es.path(svgEl);
+      this.isPathTargetInsideSVG = this.element instanceof SVGElement;
+    }
+  }, {
+    key: "onProgress",
+    value: function onProgress(f) {
+      var position = anime_es.getPathProgress(this.path, f, this.isPathTargetInsideSVG); // console.log(position);
+
+      var toSet = "\n            translateX(".concat(position.x, "px) \n            translateY(").concat(position.y, "px) \n            rotate(").concat(position.angle, "deg)\n        ");
+      this.element.style.transform = toSet;
+    }
+  }]);
+
+  return MotionPath;
+}(MotorCortex__default['default'].Effect);
 
 var nu = ["cm", "mm", "in", "px", "pt", "pc", "em", "ex", "ch", "rem", "vw", "vh", "vmin", "vmax", "%"];
 var ru = ["deg", "rad", "grad", "turn"];
@@ -2238,11 +2290,29 @@ var index = {
     attributesValidationRules: {
       animatedAttrs: animatedAttrs
     }
+  }, {
+    exportable: MotionPath,
+    name: "MotionPath",
+    attributesValidationRules: {
+      animatedAttrs: {
+        type: "object",
+        props: {
+          positionOn: {
+            type: "object",
+            props: {
+              pathElement: {
+                type: "string"
+              }
+            }
+          }
+        }
+      }
+    }
   }],
   compositeAttributes: compositeAttributes
 };
 
-var Anime$1 = MC__default['default'].loadPlugin(index);
+var Anime$1 = MotorCortex__default['default'].loadPlugin(index);
 
 var BgOpener =
 /*#__PURE__*/
@@ -2377,11 +2447,11 @@ function (_MotorCortex$HTMLClip) {
   }]);
 
   return BgOpener;
-}(MC__default['default'].HTMLClip);
+}(MotorCortex__default['default'].HTMLClip);
 
 var BgOpener_1 = BgOpener;
 
-var Anime$2 = MC__default['default'].loadPlugin(index);
+var Anime$2 = MotorCortex__default['default'].loadPlugin(index);
 
 var TwoSidesReveal =
 /*#__PURE__*/
@@ -2445,11 +2515,11 @@ function (_MotorCortex$HTMLClip) {
   }]);
 
   return TwoSidesReveal;
-}(MC__default['default'].HTMLClip);
+}(MotorCortex__default['default'].HTMLClip);
 
 var TwoSidesReveal_1 = TwoSidesReveal;
 
-var Anime$3 = MC__default['default'].loadPlugin(index);
+var Anime$3 = MotorCortex__default['default'].loadPlugin(index);
 
 var ColumnReveal =
 /*#__PURE__*/
@@ -2512,11 +2582,11 @@ function (_MotorCortex$HTMLClip) {
   }]);
 
   return ColumnReveal;
-}(MC__default['default'].HTMLClip);
+}(MotorCortex__default['default'].HTMLClip);
 
 var ColumnReveal_1 = ColumnReveal;
 
-var Anime$4 = MC__default['default'].loadPlugin(index);
+var Anime$4 = MotorCortex__default['default'].loadPlugin(index);
 
 var RowReveal =
 /*#__PURE__*/
@@ -2579,11 +2649,11 @@ function (_MotorCortex$HTMLClip) {
   }]);
 
   return RowReveal;
-}(MC__default['default'].HTMLClip);
+}(MotorCortex__default['default'].HTMLClip);
 
 var RowReveal_1 = RowReveal;
 
-var Anime$5 = MC__default['default'].loadPlugin(index);
+var Anime$5 = MotorCortex__default['default'].loadPlugin(index);
 
 var Grid =
 /*#__PURE__*/
@@ -2641,11 +2711,11 @@ function (_MotorCortex$HTMLClip) {
   }]);
 
   return Grid;
-}(MC__default['default'].HTMLClip);
+}(MotorCortex__default['default'].HTMLClip);
 
 var Grid_1 = Grid;
 
-var Anime$6 = MC__default['default'].loadPlugin(index);
+var Anime$6 = MotorCortex__default['default'].loadPlugin(index);
 
 var ThreeSidesReveal =
 /*#__PURE__*/
@@ -2780,7 +2850,7 @@ function (_MotorCortex$HTMLClip) {
   }]);
 
   return ThreeSidesReveal;
-}(MC__default['default'].HTMLClip);
+}(MotorCortex__default['default'].HTMLClip);
 
 var ThreeSidesReveal_1 = ThreeSidesReveal;
 
