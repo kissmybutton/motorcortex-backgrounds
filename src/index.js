@@ -1,20 +1,23 @@
-const BgOpener = require("./BgOpener");
-const TwoSidesReveal = require("./TwoSidesReveal");
-const ColumnReveal = require("./ColumnReveal");
-const RowReveal = require("./RowReveal");
-const ThreeSidesReveal = require("./ThreeSidesReveal");
-const Grid = require("./Grid");
-const {
+import BgOpener from "./BgOpener"
+import TwoSidesReveal from "./TwoSidesReveal"
+import ColumnReveal from "./ColumnReveal"
+import RowReveal from "./RowReveal"
+import ThreeSidesReveal from "./ThreeSidesReveal"
+import Grid from "./Grid"
+import {
   BgOpenerValidation,
   TwoSidesRevealValidation,
   RowRevealValidation,
   ColumnRevealValidation,
   GridValidation,
   ThreeSidesRevealValidation
-} = require("./validation");
+} from "./validation"
 
-module.exports = {
-  npm_name: "@kissmybutton/motorcortex-backgrounds",
+const pkg = require("../package.json");
+
+export default {
+  npm_name: pkg.name,
+  version: pkg.version,
   incidents: [
     {
       exportable: BgOpener,

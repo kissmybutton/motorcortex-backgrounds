@@ -1,7 +1,5 @@
 'use strict';
 
-Object.defineProperty(exports, '__esModule', { value: true });
-
 var MotorCortex = require('@kissmybutton/motorcortex');
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
@@ -274,8 +272,8 @@ function _createSuper(Derived) {
   };
 }
 /*
- * anime.js v3.1.4
- * (c) 2020 Julian Garnier
+ * anime.js v3.1.5
+ * (c) 2021 Julian Garnier
  * Released under the MIT license
  * animejs.com
  */
@@ -1240,8 +1238,10 @@ function getPathProgress(path, progress, isPathTargetInsideSVG) {
   var p = point();
   var p0 = point(-1);
   var p1 = point(+1);
-  var scaleX = isPathTargetInsideSVG ? 1 : svg.w / svg.vW;
-  var scaleY = isPathTargetInsideSVG ? 1 : svg.h / svg.vH;
+  var scaleX = 1; //isPathTargetInsideSVG ? 1 : svg.w / svg.vW;
+
+  var scaleY = 1; //isPathTargetInsideSVG ? 1 : svg.h / svg.vH;
+
   return {
     x: (p.x - svg.x) * scaleX,
     y: (p.y - svg.y) * scaleY,
@@ -1402,6 +1402,8 @@ function (_MotorCortex$Effect) {
   _createClass$1(MotionPath, [{
     key: "onGetContext",
     value: function onGetContext() {
+      this.pixelsAccuracy = this.attrs.pixelsAccuracy || 4;
+      this.calculatedPoints = [];
       var svgEl = this.context.getElements(this.targetValue.pathElement)[0];
       this.path = anime_es.path(svgEl);
       this.isPathTargetInsideSVG = this.element instanceof SVGElement;
@@ -1409,9 +1411,18 @@ function (_MotorCortex$Effect) {
   }, {
     key: "onProgress",
     value: function onProgress(f) {
-      var position = anime_es.getPathProgress(this.path, f, this.isPathTargetInsideSVG); // console.log(position);
+      var toSet;
+      var distance = Math.round(this.path.totalLength / this.pixelsAccuracy * f) * this.pixelsAccuracy;
 
-      var toSet = "\n            translateX(".concat(position.x, "px) \n            translateY(").concat(position.y, "px) \n            rotate(").concat(position.angle, "deg)\n        ");
+      if (this.calculatedPoints[distance] !== null && this.calculatedPoints[distance] !== undefined) {
+        toSet = this.calculatedPoints[distance];
+      } else {
+        var position = anime_es.getPathProgress(this.path, distance / this.path.totalLength, this.isPathTargetInsideSVG); // console.log(position);
+
+        toSet = "\n            translateX(".concat(position.x, "px)\n            translateY(").concat(position.y, "px)\n            rotate(").concat(position.angle, "deg)\n        ");
+        this.calculatedPoints[distance] = toSet;
+      }
+
       this.element.style.transform = toSet;
     }
   }]);
@@ -2282,8 +2293,12 @@ var animatedAttrs = {
     min: 0
   }
 };
+
+var pkg = require('../package.json');
+
 var index = {
-  npm_name: "@kissmybutton/motorcortex-anime",
+  npm_name: pkg.name,
+  version: pkg.version,
   incidents: [{
     exportable: Anime,
     name: "Anime",
@@ -3030,52 +3045,37 @@ var ThreeSidesRevealValidation = {
     type: "number"
   }
 };
-var validation = {
-  BgOpenerValidation: BgOpenerValidation,
-  TwoSidesRevealValidation: TwoSidesRevealValidation,
-  RowRevealValidation: RowRevealValidation,
-  ColumnRevealValidation: ColumnRevealValidation,
-  GridValidation: GridValidation,
-  ThreeSidesRevealValidation: ThreeSidesRevealValidation
-};
 
-var BgOpenerValidation$1 = validation.BgOpenerValidation,
-    TwoSidesRevealValidation$1 = validation.TwoSidesRevealValidation,
-    RowRevealValidation$1 = validation.RowRevealValidation,
-    ColumnRevealValidation$1 = validation.ColumnRevealValidation,
-    GridValidation$1 = validation.GridValidation,
-    ThreeSidesRevealValidation$1 = validation.ThreeSidesRevealValidation;
-var src = {
-  npm_name: "@kissmybutton/motorcortex-backgrounds",
+var pkg$1 = require("../package.json");
+
+var index$1 = {
+  npm_name: pkg$1.name,
+  version: pkg$1.version,
   incidents: [{
     exportable: BgOpener_1,
     name: "BgOpener",
-    attributesValidationRules: _objectSpread2({}, BgOpenerValidation$1)
+    attributesValidationRules: _objectSpread2({}, BgOpenerValidation)
   }, {
     exportable: TwoSidesReveal_1,
     name: "TwoSidesReveal",
-    attributesValidationRules: _objectSpread2({}, TwoSidesRevealValidation$1)
+    attributesValidationRules: _objectSpread2({}, TwoSidesRevealValidation)
   }, {
     exportable: ColumnReveal_1,
     name: "ColumnReveal",
-    attributesValidationRules: _objectSpread2({}, ColumnRevealValidation$1)
+    attributesValidationRules: _objectSpread2({}, ColumnRevealValidation)
   }, {
     exportable: RowReveal_1,
     name: "RowReveal",
-    attributesValidationRules: _objectSpread2({}, RowRevealValidation$1)
+    attributesValidationRules: _objectSpread2({}, RowRevealValidation)
   }, {
     exportable: ThreeSidesReveal_1,
     name: "ThreeSidesReveal",
-    attributesValidationRules: _objectSpread2({}, ThreeSidesRevealValidation$1)
+    attributesValidationRules: _objectSpread2({}, ThreeSidesRevealValidation)
   }, {
     exportable: Grid_1,
     name: "Grid",
-    attributesValidationRules: _objectSpread2({}, GridValidation$1)
+    attributesValidationRules: _objectSpread2({}, GridValidation)
   }]
 };
-var src_1 = src.npm_name;
-var src_2 = src.incidents;
 
-exports.default = src;
-exports.incidents = src_2;
-exports.npm_name = src_1;
+module.exports = index$1;

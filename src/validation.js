@@ -1,4 +1,4 @@
-exports.BgOpenerValidation = {
+export const BgOpenerValidation = {
   width: { optional: false, type: "number" },
   height: { optional: false, type: "number" },
   bgUrl: { optional: false, type: "string" },
@@ -7,7 +7,7 @@ exports.BgOpenerValidation = {
   exitStart: { optional: false, type: "number" }
 };
 
-exports.TwoSidesRevealValidation = {
+export const TwoSidesRevealValidation = {
   width: { optional: false, type: "number" },
   height: { optional: false, type: "number" },
   bgUrl: { optional: false, type: "string" },
@@ -15,7 +15,7 @@ exports.TwoSidesRevealValidation = {
   easing: { optional: false, type: "string" }
 };
 
-exports.RowRevealValidation = {
+export const RowRevealValidation = {
   width: { optional: false, type: "number" },
   height: { optional: false, type: "number" },
   bgUrl: { optional: false, type: "string" },
@@ -25,7 +25,7 @@ exports.RowRevealValidation = {
   bgOut: { optional: false, type: "boolean" }
 };
 
-exports.ColumnRevealValidation = {
+export const ColumnRevealValidation = {
   width: { optional: false, type: "number" },
   height: { optional: false, type: "number" },
   bgUrl: { optional: false, type: "string" },
@@ -35,7 +35,7 @@ exports.ColumnRevealValidation = {
   bgOut: { optional: false, type: "boolean" }
 };
 
-exports.GridValidation = {
+export const GridValidation = {
   width: { optional: false, type: "number" },
   height: { optional: false, type: "number" },
   color: { optional: false, type: "color" },
@@ -44,7 +44,7 @@ exports.GridValidation = {
   timing: { optional: false, type: "number" }
 };
 
-exports.ThreeSidesRevealValidation = {
+export const ThreeSidesRevealValidation = {
   width: { optional: false, type: "number" },
   height: { optional: false, type: "number" },
   bgUrl: { optional: false, type: "string" },
