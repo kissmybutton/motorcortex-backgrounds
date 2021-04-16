@@ -1,8 +1,9 @@
-const MotorCortex = require("@kissmybutton/motorcortex");
-const AnimeDefinition = require("@kissmybutton/motorcortex-anime");
-const Anime = MotorCortex.loadPlugin(AnimeDefinition);
+import { HTMLClip, loadPlugin } from "@kissmybutton/motorcortex";
+import AnimeDefinition from "@kissmybutton/motorcortex-anime";
 
-class ColumnReveal extends MotorCortex.HTMLClip {
+const Anime = loadPlugin(AnimeDefinition);
+
+export default class ColumnReveal extends HTMLClip {
   get font() {
     return [
       {
@@ -14,62 +15,60 @@ class ColumnReveal extends MotorCortex.HTMLClip {
 
   get html() {
     return `
-    <div class="wrapper">
-      <div class="bg-wrapper">
-        <div class="bg bg-0"></div>
-      </div>
-      <div class="bg-wrapper">
-        <div class="bg bg-1"></div>
-      </div>
-      <div class="bg-wrapper">
-        <div class="bg bg-2"></div>
-      </div>
-      <div class="bg-wrapper">
-        <div class="bg bg-3"></div>
-      </div>
-	  </div>
+      <div class="wrapper">
+        <div class="bg-wrapper">
+          <div class="bg bg-0"></div>
+        </div>
+        <div class="bg-wrapper">
+          <div class="bg bg-1"></div>
+        </div>
+        <div class="bg-wrapper">
+          <div class="bg bg-2"></div>
+        </div>
+        <div class="bg-wrapper">
+          <div class="bg bg-3"></div>
+        </div>
+  	  </div>
     `;
   }
 
   get css() {
     return `
-    .wrapper{
-      width: ${this.attrs.width}px;
-      height: ${this.attrs.height}px;
-      display:flex;
-      font-family: 'Poppins', sans-serif;
-      
-    }
-    .bg-wrapper{
-      width: ${this.attrs.width / 4}px;
-      height: ${this.attrs.height}px;
-      display:flex;
-      font-family: 'Poppins', sans-serif;
-      position: relative;
-      overflow: hidden;
-      top: -${this.attrs.height}px;
-    }
-    .bg{
-      width: ${this.attrs.width}px;
-      height: ${this.attrs.height}px;
-      background:url(${this.attrs.bgUrl}) no-repeat;
-      background-size: cover;
-      position: absolute;
-    }
-    .bg-0{
-      left:0
-    }
-    .bg-1{
-      left:-${this.attrs.width - (this.attrs.width / 4) * 3}px;
-    }
-    .bg-2{
-      left:-${this.attrs.width - (this.attrs.width / 4) * 2}px;
-    }
-    .bg-3{
-      left:-${this.attrs.width - this.attrs.width / 4}px;
-    }
-      
-  `;
+      .wrapper{
+        width: ${this.attrs.width}px;
+        height: ${this.attrs.height}px;
+        display:flex;
+        font-family: 'Poppins', sans-serif;
+      }
+      .bg-wrapper{
+        width: ${this.attrs.width / 4}px;
+        height: ${this.attrs.height}px;
+        display:flex;
+        font-family: 'Poppins', sans-serif;
+        position: relative;
+        overflow: hidden;
+        top: -${this.attrs.height}px;
+      }
+      .bg{
+        width: ${this.attrs.width}px;
+        height: ${this.attrs.height}px;
+        background:url(${this.attrs.bgUrl}) no-repeat;
+        background-size: cover;
+        position: absolute;
+      }
+      .bg-0{
+        left:0
+      }
+      .bg-1{
+        left:-${this.attrs.width - (this.attrs.width / 4) * 3}px;
+      }
+      .bg-2{
+        left:-${this.attrs.width - (this.attrs.width / 4) * 2}px;
+      }
+      .bg-3{
+        left:-${this.attrs.width - this.attrs.width / 4}px;
+      }
+    `;
   }
 
   buildTree() {
@@ -83,9 +82,7 @@ class ColumnReveal extends MotorCortex.HTMLClip {
         duration: 1000 * this.attrs.timing,
         selector: ".bg-wrapper",
         easing: this.attrs.easing,
-        delay: `@expression(randomInt(0,${Math.floor(
-          500 * this.attrs.timing
-        )}))`
+        delay: `@expression(random(0,${Math.floor(500 * this.attrs.timing)}))`
       }
     );
     this.addIncident(bgPositionOneIn, 0);
@@ -100,14 +97,10 @@ class ColumnReveal extends MotorCortex.HTMLClip {
           duration: 1000 * this.attrs.timing,
           selector: ".bg-wrapper",
           easing: this.attrs.easing,
-          delay: `@expression(randomInt(0,${Math.floor(
-            500 * this.attrs.timing
-          )}))`
+          delay: `@expression(random(0,${Math.floor(500 * this.attrs.timing)}))`
         }
       );
       this.addIncident(bgPositionOneOut, this.attrs.exitStart);
     }
   }
 }
-
-module.exports = ColumnReveal;

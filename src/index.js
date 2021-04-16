@@ -1,9 +1,9 @@
-import BgOpener from "./BgOpener"
-import TwoSidesReveal from "./TwoSidesReveal"
-import ColumnReveal from "./ColumnReveal"
-import RowReveal from "./RowReveal"
-import ThreeSidesReveal from "./ThreeSidesReveal"
-import Grid from "./Grid"
+import BgOpener from "./BgOpener";
+import TwoSidesReveal from "./TwoSidesReveal";
+import ColumnReveal from "./ColumnReveal";
+import RowReveal from "./RowReveal";
+import ThreeSidesReveal from "./ThreeSidesReveal";
+import Grid from "./Grid";
 import {
   BgOpenerValidation,
   TwoSidesRevealValidation,
@@ -11,9 +11,9 @@ import {
   ColumnRevealValidation,
   GridValidation,
   ThreeSidesRevealValidation
-} from "./validation"
+} from "./validation";
 
-import {name,version}  from '../package.json'
+import { name, version } from "../package.json";
 
 export default {
   npm_name: name,
