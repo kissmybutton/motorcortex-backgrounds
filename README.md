@@ -14,9 +14,9 @@ $ yarn add @kissmybutton/motorcortex-backgrounds
 ## Loading
 
 ```javascript
-const MotorCortex = require("@kissmybutton/motorcortex/");
-const BackgroundsDefinition = require("@kissmybutton/motorcortex-backgrounds");
-const Plugin = MotorCortex.loadPlugin(BackgroundsDefinition);
+import {loadPlugin} from "@kissmybutton/motorcortex";
+import BackgroundsDefinition from "@kissmybutton/motorcortex-backgrounds";
+const Plugin = loadPlugin(BackgroundsDefinition);
 ```
 
 # Create incident
