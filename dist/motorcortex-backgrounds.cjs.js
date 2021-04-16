@@ -6,124 +6,6 @@ function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'defau
 
 var MotorCortex__default = /*#__PURE__*/_interopDefaultLegacy(MotorCortex);
 
-function _classCallCheck(instance, Constructor) {
-  if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
-  }
-}
-
-function _defineProperties(target, props) {
-  for (var i = 0; i < props.length; i++) {
-    var descriptor = props[i];
-    descriptor.enumerable = descriptor.enumerable || false;
-    descriptor.configurable = true;
-    if ("value" in descriptor) descriptor.writable = true;
-    Object.defineProperty(target, descriptor.key, descriptor);
-  }
-}
-
-function _createClass(Constructor, protoProps, staticProps) {
-  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
-  if (staticProps) _defineProperties(Constructor, staticProps);
-  return Constructor;
-}
-
-function _defineProperty(obj, key, value) {
-  if (key in obj) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-  } else {
-    obj[key] = value;
-  }
-
-  return obj;
-}
-
-function ownKeys(object, enumerableOnly) {
-  var keys = Object.keys(object);
-
-  if (Object.getOwnPropertySymbols) {
-    var symbols = Object.getOwnPropertySymbols(object);
-    if (enumerableOnly) symbols = symbols.filter(function (sym) {
-      return Object.getOwnPropertyDescriptor(object, sym).enumerable;
-    });
-    keys.push.apply(keys, symbols);
-  }
-
-  return keys;
-}
-
-function _objectSpread2(target) {
-  for (var i = 1; i < arguments.length; i++) {
-    var source = arguments[i] != null ? arguments[i] : {};
-
-    if (i % 2) {
-      ownKeys(source, true).forEach(function (key) {
-        _defineProperty(target, key, source[key]);
-      });
-    } else if (Object.getOwnPropertyDescriptors) {
-      Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
-    } else {
-      ownKeys(source).forEach(function (key) {
-        Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
-      });
-    }
-  }
-
-  return target;
-}
-
-function _inherits(subClass, superClass) {
-  if (typeof superClass !== "function" && superClass !== null) {
-    throw new TypeError("Super expression must either be null or a function");
-  }
-
-  subClass.prototype = Object.create(superClass && superClass.prototype, {
-    constructor: {
-      value: subClass,
-      writable: true,
-      configurable: true
-    }
-  });
-  if (superClass) _setPrototypeOf(subClass, superClass);
-}
-
-function _getPrototypeOf(o) {
-  _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
-    return o.__proto__ || Object.getPrototypeOf(o);
-  };
-  return _getPrototypeOf(o);
-}
-
-function _setPrototypeOf(o, p) {
-  _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
-    o.__proto__ = p;
-    return o;
-  };
-
-  return _setPrototypeOf(o, p);
-}
-
-function _assertThisInitialized(self) {
-  if (self === void 0) {
-    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-  }
-
-  return self;
-}
-
-function _possibleConstructorReturn(self, call) {
-  if (call && (typeof call === "object" || typeof call === "function")) {
-    return call;
-  }
-
-  return _assertThisInitialized(self);
-}
-
 function _classCallCheck$1(instance, Constructor) {
   if (!(instance instanceof Constructor)) {
     throw new TypeError("Cannot call a class as a function");
@@ -226,13 +108,13 @@ function _setPrototypeOf$1(o, p) {
   return _setPrototypeOf$1(o, p);
 }
 
-function _isNativeReflectConstruct() {
+function _isNativeReflectConstruct$1() {
   if (typeof Reflect === "undefined" || !Reflect.construct) return false;
   if (Reflect.construct.sham) return false;
   if (typeof Proxy === "function") return true;
 
   try {
-    Date.prototype.toString.call(Reflect.construct(Date, [], function () {}));
+    Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {}));
     return true;
   } catch (e) {
     return false;
@@ -255,12 +137,14 @@ function _possibleConstructorReturn$1(self, call) {
   return _assertThisInitialized$1(self);
 }
 
-function _createSuper(Derived) {
-  return function () {
+function _createSuper$1(Derived) {
+  var hasNativeReflectConstruct = _isNativeReflectConstruct$1();
+
+  return function _createSuperInternal() {
     var Super = _getPrototypeOf$1(Derived),
         result;
 
-    if (_isNativeReflectConstruct()) {
+    if (hasNativeReflectConstruct) {
       var NewTarget = _getPrototypeOf$1(this).constructor;
 
       result = Reflect.construct(Super, arguments, NewTarget);
@@ -269,6 +153,156 @@ function _createSuper(Derived) {
     }
 
     return _possibleConstructorReturn$1(this, result);
+  };
+}
+
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+
+function _defineProperties(target, props) {
+  for (var i = 0; i < props.length; i++) {
+    var descriptor = props[i];
+    descriptor.enumerable = descriptor.enumerable || false;
+    descriptor.configurable = true;
+    if ("value" in descriptor) descriptor.writable = true;
+    Object.defineProperty(target, descriptor.key, descriptor);
+  }
+}
+
+function _createClass(Constructor, protoProps, staticProps) {
+  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+  if (staticProps) _defineProperties(Constructor, staticProps);
+  return Constructor;
+}
+
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
+
+function ownKeys(object, enumerableOnly) {
+  var keys = Object.keys(object);
+
+  if (Object.getOwnPropertySymbols) {
+    var symbols = Object.getOwnPropertySymbols(object);
+    if (enumerableOnly) symbols = symbols.filter(function (sym) {
+      return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+    });
+    keys.push.apply(keys, symbols);
+  }
+
+  return keys;
+}
+
+function _objectSpread2(target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i] != null ? arguments[i] : {};
+
+    if (i % 2) {
+      ownKeys(Object(source), true).forEach(function (key) {
+        _defineProperty(target, key, source[key]);
+      });
+    } else if (Object.getOwnPropertyDescriptors) {
+      Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
+    } else {
+      ownKeys(Object(source)).forEach(function (key) {
+        Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+      });
+    }
+  }
+
+  return target;
+}
+
+function _inherits(subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function");
+  }
+
+  subClass.prototype = Object.create(superClass && superClass.prototype, {
+    constructor: {
+      value: subClass,
+      writable: true,
+      configurable: true
+    }
+  });
+  if (superClass) _setPrototypeOf(subClass, superClass);
+}
+
+function _getPrototypeOf(o) {
+  _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
+    return o.__proto__ || Object.getPrototypeOf(o);
+  };
+  return _getPrototypeOf(o);
+}
+
+function _setPrototypeOf(o, p) {
+  _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
+    o.__proto__ = p;
+    return o;
+  };
+
+  return _setPrototypeOf(o, p);
+}
+
+function _isNativeReflectConstruct() {
+  if (typeof Reflect === "undefined" || !Reflect.construct) return false;
+  if (Reflect.construct.sham) return false;
+  if (typeof Proxy === "function") return true;
+
+  try {
+    Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {}));
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
+function _assertThisInitialized(self) {
+  if (self === void 0) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }
+
+  return self;
+}
+
+function _possibleConstructorReturn(self, call) {
+  if (call && (typeof call === "object" || typeof call === "function")) {
+    return call;
+  }
+
+  return _assertThisInitialized(self);
+}
+
+function _createSuper(Derived) {
+  var hasNativeReflectConstruct = _isNativeReflectConstruct();
+
+  return function _createSuperInternal() {
+    var Super = _getPrototypeOf(Derived),
+        result;
+
+    if (hasNativeReflectConstruct) {
+      var NewTarget = _getPrototypeOf(this).constructor;
+
+      result = Reflect.construct(Super, arguments, NewTarget);
+    } else {
+      result = Super.apply(this, arguments);
+    }
+
+    return _possibleConstructorReturn(this, result);
   };
 }
 /*
@@ -956,7 +990,7 @@ function anime(params) {
   }
 
   var instance = createNewInstance(params);
-  var promise = makePromise(instance);
+  makePromise(instance);
 
   function seekChild(time, child) {
     if (child) {
@@ -1025,7 +1059,7 @@ function anime(params) {
         progress = strings[0];
 
         for (var s = 0; s < stringsLength; s++) {
-          var a = strings[s];
+          strings[s];
           var b = strings[s + 1];
           var n$1 = numbers[s];
 
@@ -1070,7 +1104,7 @@ function anime(params) {
 
         if (!instance.passThrough && 'Promise' in window) {
           resolve();
-          promise = makePromise(instance);
+          makePromise(instance);
         }
       }
     }
@@ -1300,20 +1334,18 @@ function getMatrix2D(win, element) {
   return qrDecompone(values);
 }
 
-var Anime =
-/*#__PURE__*/
-function (_MotorCortex$Effect) {
-  _inherits$1(Anime, _MotorCortex$Effect);
+var Anime$6 = /*#__PURE__*/function (_MotorCortex$Effect) {
+  _inherits(Anime, _MotorCortex$Effect);
 
   var _super = _createSuper(Anime);
 
   function Anime() {
-    _classCallCheck$1(this, Anime);
+    _classCallCheck(this, Anime);
 
     return _super.apply(this, arguments);
   }
 
-  _createClass$1(Anime, [{
+  _createClass(Anime, [{
     key: "onGetContext",
     value: function onGetContext() {
       var options = {};
@@ -1326,39 +1358,35 @@ function (_MotorCortex$Effect) {
             continue;
           }
 
-          options[compoAttribute[i]] = [this.getInitialValue()[compoAttribute[i]], this.targetValue[compoAttribute[i]]];
+          options[compoAttribute[i]] = [this.initialValue[compoAttribute[i]], this.targetValue[compoAttribute[i]]];
         }
       } else {
-        options[this.attributeKey] = [this.getInitialValue(), this.targetValue];
+        options[this.attributeKey] = [this.initialValue, this.targetValue];
       }
 
-      this.target = anime_es(_objectSpread2$1({
+      this.target = anime_es(_objectSpread2(_objectSpread2({
         autoplay: false,
         duration: this.props.duration,
         easing: "linear",
         targets: this.element
-      }, (this.attrs || {}).attrs || {}, {}, options)); // handle first render initial values
+      }, (this.attrs || {}).attrs || {}), options)); // handle first render initial values
     }
   }, {
     key: "getScratchValue",
     value: function getScratchValue() {
-      if (this.attributeKey === "transform") {
-        var obj = {};
-        var transform = compositeAttributes[this.attributeKey];
-        var currentTransform = getMatrix2D(this.context.window, this.element);
-
-        for (var i = 0; i < transform.length; i++) {
-          if (Object.prototype.hasOwnProperty.call(currentTransform, transform[i])) {
-            obj[transform[i]] = currentTransform[transform[i]];
-          } else {
-            obj[transform[i]] = anime_es.get(this.element, transform[i]);
-          }
-        }
-
-        return obj;
+      if (this.attributeKey !== "transform") {
+        return anime_es.get(this.element, this.attributeKey);
       }
 
-      return anime_es.get(this.element, this.attributeKey);
+      var obj = {};
+      var transform = compositeAttributes[this.attributeKey];
+      var currentTransform = getMatrix2D(this.context.window, this.element);
+
+      for (var i = 0; i < transform.length; i++) {
+        obj[transform[i]] = Object.prototype.hasOwnProperty.call(currentTransform, transform[i]) ? currentTransform[transform[i]] : anime_es.get(this.element, transform[i]);
+      }
+
+      return obj;
     }
     /**
      * @param {number} f
@@ -1386,20 +1414,18 @@ function (_MotorCortex$Effect) {
 **/
 
 
-var MotionPath =
-/*#__PURE__*/
-function (_MotorCortex$Effect) {
-  _inherits$1(MotionPath, _MotorCortex$Effect);
+var MotionPath = /*#__PURE__*/function (_MotorCortex$Effect) {
+  _inherits(MotionPath, _MotorCortex$Effect);
 
   var _super = _createSuper(MotionPath);
 
   function MotionPath() {
-    _classCallCheck$1(this, MotionPath);
+    _classCallCheck(this, MotionPath);
 
     return _super.apply(this, arguments);
   }
 
-  _createClass$1(MotionPath, [{
+  _createClass(MotionPath, [{
     key: "onGetContext",
     value: function onGetContext() {
       this.pixelsAccuracy = this.attrs.pixelsAccuracy || 4;
@@ -2293,13 +2319,13 @@ var animatedAttrs = {
     min: 0
   }
 };
-var name = "@kissmybutton/motorcortex-anime";
-var version = "2.1.11";
-var index = {
-  npm_name: name,
-  version: version,
+var name$1 = "@kissmybutton/motorcortex-anime";
+var version$1 = "2.1.14";
+var index$1 = {
+  npm_name: name$1,
+  version: version$1,
   incidents: [{
-    exportable: Anime,
+    exportable: Anime$6,
     name: "Anime",
     attributesValidationRules: {
       animatedAttrs: animatedAttrs
@@ -2326,23 +2352,41 @@ var index = {
   compositeAttributes: compositeAttributes
 };
 
-var Anime$1 = MotorCortex__default['default'].loadPlugin(index);
+var Anime$5 = MotorCortex.loadPlugin(index$1);
 
-var BgOpener =
-/*#__PURE__*/
-function (_MotorCortex$HTMLClip) {
-  _inherits(BgOpener, _MotorCortex$HTMLClip);
+var BgOpener = /*#__PURE__*/function (_HTMLClip) {
+  _inherits$1(BgOpener, _HTMLClip);
+
+  var _super = _createSuper$1(BgOpener);
 
   function BgOpener() {
-    _classCallCheck(this, BgOpener);
+    _classCallCheck$1(this, BgOpener);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(BgOpener).apply(this, arguments));
+    return _super.apply(this, arguments);
   }
 
-  _createClass(BgOpener, [{
+  _createClass$1(BgOpener, [{
+    key: "font",
+    get: function get() {
+      return [{
+        type: "google-font",
+        src: "https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,400;0,500;0,800;1,700;1,800;1,900&display=swap"
+      }];
+    }
+  }, {
+    key: "html",
+    get: function get() {
+      return "\n      <div class=\"wrapper\">\n        <div class=\"bg-wrapper bg-wrapper-0\">\n          <div class=\"bg bg-0\"></div>\n        </div>\n        <div class=\"bg-wrapper bg-wrapper-1\">\n          <div class=\"bg bg-1\"></div>\n        </div>\n  \t  </div>\n    ";
+    }
+  }, {
+    key: "css",
+    get: function get() {
+      return "\n      .wrapper{\n        width: ".concat(this.attrs.width, "px;\n        height: ").concat(this.attrs.height, "px;\n        display:flex;\n        font-family: 'Poppins', sans-serif;\n        flex-direction: column;\n      }\n      .bg-wrapper{\n        width: ").concat(this.attrs.width, "px;\n        height: ").concat(this.attrs.height, "px;\n        display:flex;\n        font-family: 'Poppins', sans-serif;\n        position: relative;\n        overflow: hidden;\n      }\n      .bg{\n        width: ").concat(this.attrs.width, "px;\n        height: ").concat(this.attrs.height, "px;\n        background:url(").concat(this.attrs.bgUrl, ") no-repeat;\n        background-size: contain;\n        position: relative;\n      }\n    ");
+    }
+  }, {
     key: "buildTree",
     value: function buildTree() {
-      var bgPosition = new Anime$1.Anime({
+      var bgPosition = new Anime$5.Anime({
         animatedAttrs: {
           top: "".concat(0, "px")
         },
@@ -2355,7 +2399,7 @@ function (_MotorCortex$HTMLClip) {
         easing: this.attrs.easing
       });
       this.addIncident(bgPosition, 0);
-      var bgPositionOne = new Anime$1.Anime({
+      var bgPositionOne = new Anime$5.Anime({
         animatedAttrs: {
           top: "-".concat(this.attrs.height / 2, "px")
         },
@@ -2368,7 +2412,7 @@ function (_MotorCortex$HTMLClip) {
         easing: this.attrs.easing
       });
       this.addIncident(bgPositionOne, 0);
-      var wrapperHeight = new Anime$1.Anime({
+      var wrapperHeight = new Anime$5.Anime({
         animatedAttrs: {
           height: "".concat(this.attrs.height / 2, "px"),
           top: "".concat(0, "px")
@@ -2383,7 +2427,7 @@ function (_MotorCortex$HTMLClip) {
         easing: this.attrs.easing
       });
       this.addIncident(wrapperHeight, 0);
-      var wrapperHeightOut = new Anime$1.Anime({
+      var wrapperHeightOut = new Anime$5.Anime({
         animatedAttrs: {
           // height: `${this.attrs.height/2}px`,
           top: "-".concat(this.attrs.height / 2, "px")
@@ -2398,7 +2442,7 @@ function (_MotorCortex$HTMLClip) {
         easing: this.attrs.easing
       });
       this.addIncident(wrapperHeightOut, this.attrs.exitStart);
-      var wrapperHeightOutOne = new Anime$1.Anime({
+      var wrapperHeightOutOne = new Anime$5.Anime({
         animatedAttrs: {
           // height: `${this.attrs.height/2}px`,
           top: "".concat(this.attrs.height / 2, "px")
@@ -2413,7 +2457,7 @@ function (_MotorCortex$HTMLClip) {
         easing: this.attrs.easing
       });
       this.addIncident(wrapperHeightOutOne, this.attrs.exitStart);
-      var bgPositionOut = new Anime$1.Anime({
+      var bgPositionOut = new Anime$5.Anime({
         animatedAttrs: {
           top: "".concat(this.attrs.height / 2, "px")
         } // initialValues: {
@@ -2426,7 +2470,7 @@ function (_MotorCortex$HTMLClip) {
         easing: this.attrs.easing
       });
       this.addIncident(bgPositionOut, this.attrs.exitStart);
-      var bgPositionOneOut = new Anime$1.Anime({
+      var bgPositionOneOut = new Anime$5.Anime({
         animatedAttrs: {
           top: "-".concat(this.attrs.height, "px")
         },
@@ -2440,7 +2484,25 @@ function (_MotorCortex$HTMLClip) {
       });
       this.addIncident(bgPositionOneOut, this.attrs.exitStart);
     }
-  }, {
+  }]);
+
+  return BgOpener;
+}(MotorCortex.HTMLClip);
+
+var Anime$4 = MotorCortex.loadPlugin(index$1);
+
+var TwoSidesReveal = /*#__PURE__*/function (_HTMLClip) {
+  _inherits$1(TwoSidesReveal, _HTMLClip);
+
+  var _super = _createSuper$1(TwoSidesReveal);
+
+  function TwoSidesReveal() {
+    _classCallCheck$1(this, TwoSidesReveal);
+
+    return _super.apply(this, arguments);
+  }
+
+  _createClass$1(TwoSidesReveal, [{
     key: "font",
     get: function get() {
       return [{
@@ -2451,37 +2513,17 @@ function (_MotorCortex$HTMLClip) {
   }, {
     key: "html",
     get: function get() {
-      return "\n    <div class=\"wrapper\">\n      <div class=\"bg-wrapper bg-wrapper-0\">\n        <div class=\"bg bg-0\"></div>\n      </div>\n      <div class=\"bg-wrapper bg-wrapper-1\">\n        <div class=\"bg bg-1\"></div>\n      </div>\n\n\t  </div>\n    ";
+      return "\n      <div class=\"wrapper\">\n        <div class=\"bg-wrapper bg-wrapper-0\">\n          <div class=\"bg bg-0\"></div>\n        </div>\n        <div class=\"bg-wrapper bg-wrapper-1\">\n          <div class=\"bg bg-1\"></div>\n        </div>\n  \t  </div>\n    ";
     }
   }, {
     key: "css",
     get: function get() {
-      return "\n    .wrapper{\n      width: ".concat(this.attrs.width, "px;\n      height: ").concat(this.attrs.height, "px;\n      display:flex;\n      font-family: 'Poppins', sans-serif;\n      flex-direction: column;\n    }\n    .bg-wrapper{\n      width: ").concat(this.attrs.width, "px;\n      height: ").concat(this.attrs.height, "px;\n      display:flex;\n      font-family: 'Poppins', sans-serif;\n      position: relative;\n      overflow: hidden;\n    }\n    .bg{\n      width: ").concat(this.attrs.width, "px;\n      height: ").concat(this.attrs.height, "px;\n      background:url(").concat(this.attrs.bgUrl, ") no-repeat;\n      background-size: contain;\n      position: relative;\n    }\n      \n  ");
+      return "\n      .wrapper{\n        width: ".concat(this.attrs.width, "px;\n        height: ").concat(this.attrs.height, "px;\n        display:flex;\n        font-family: 'Poppins', sans-serif;\n        overflow: hidden;\n      }\n      .bg-wrapper{\n        width: ").concat(this.attrs.width, "px;\n        height: ").concat(this.attrs.height, "px;\n        display:flex;\n        font-family: 'Poppins', sans-serif;\n        position: absolute;\n        overflow: hidden;\n      }\n      .bg-wrapper-0{\n        right: ").concat(this.attrs.width / 2, "px;\n      }\n      .bg-wrapper-1{\n        left: ").concat(this.attrs.width / 2, "px;\n      }\n      .bg{\n        width: ").concat(this.attrs.width, "px;\n        height: ").concat(this.attrs.height, "px;\n        background:url(").concat(this.attrs.bgUrl, ") no-repeat;\n        background-size: contain;\n        position: relative;\n      }\n    ");
     }
-  }]);
-
-  return BgOpener;
-}(MotorCortex__default['default'].HTMLClip);
-
-var BgOpener_1 = BgOpener;
-
-var Anime$2 = MotorCortex__default['default'].loadPlugin(index);
-
-var TwoSidesReveal =
-/*#__PURE__*/
-function (_MotorCortex$HTMLClip) {
-  _inherits(TwoSidesReveal, _MotorCortex$HTMLClip);
-
-  function TwoSidesReveal() {
-    _classCallCheck(this, TwoSidesReveal);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(TwoSidesReveal).apply(this, arguments));
-  }
-
-  _createClass(TwoSidesReveal, [{
+  }, {
     key: "buildTree",
     value: function buildTree() {
-      var bgPositionLeft = new Anime$2.Anime({
+      var bgPositionLeft = new Anime$4.Anime({
         animatedAttrs: {
           left: "".concat(this.attrs.width / 2, "px")
         },
@@ -2494,7 +2536,7 @@ function (_MotorCortex$HTMLClip) {
         easing: this.attrs.easing
       });
       this.addIncident(bgPositionLeft, 0);
-      var bgPositionRigth = new Anime$2.Anime({
+      var bgPositionRigth = new Anime$4.Anime({
         animatedAttrs: {
           right: "".concat(this.attrs.width / 2, "px")
         },
@@ -2508,7 +2550,25 @@ function (_MotorCortex$HTMLClip) {
       });
       this.addIncident(bgPositionRigth, 0);
     }
-  }, {
+  }]);
+
+  return TwoSidesReveal;
+}(MotorCortex.HTMLClip);
+
+var Anime$3 = MotorCortex.loadPlugin(index$1);
+
+var ColumnReveal = /*#__PURE__*/function (_HTMLClip) {
+  _inherits$1(ColumnReveal, _HTMLClip);
+
+  var _super = _createSuper$1(ColumnReveal);
+
+  function ColumnReveal() {
+    _classCallCheck$1(this, ColumnReveal);
+
+    return _super.apply(this, arguments);
+  }
+
+  _createClass$1(ColumnReveal, [{
     key: "font",
     get: function get() {
       return [{
@@ -2519,34 +2579,14 @@ function (_MotorCortex$HTMLClip) {
   }, {
     key: "html",
     get: function get() {
-      return "\n    <div class=\"wrapper\">\n      <div class=\"bg-wrapper bg-wrapper-0\">\n        <div class=\"bg bg-0\"></div>\n      </div>\n      <div class=\"bg-wrapper bg-wrapper-1\">\n        <div class=\"bg bg-1\"></div>\n      </div>\n\n\t  </div>\n    ";
+      return "\n      <div class=\"wrapper\">\n        <div class=\"bg-wrapper\">\n          <div class=\"bg bg-0\"></div>\n        </div>\n        <div class=\"bg-wrapper\">\n          <div class=\"bg bg-1\"></div>\n        </div>\n        <div class=\"bg-wrapper\">\n          <div class=\"bg bg-2\"></div>\n        </div>\n        <div class=\"bg-wrapper\">\n          <div class=\"bg bg-3\"></div>\n        </div>\n  \t  </div>\n    ";
     }
   }, {
     key: "css",
     get: function get() {
-      return "\n    .wrapper{\n      width: ".concat(this.attrs.width, "px;\n      height: ").concat(this.attrs.height, "px;\n      display:flex;\n      font-family: 'Poppins', sans-serif;\n      overflow: hidden;\n    }\n    .bg-wrapper{\n      width: ").concat(this.attrs.width, "px;\n      height: ").concat(this.attrs.height, "px;\n      display:flex;\n      font-family: 'Poppins', sans-serif;\n      position: absolute;\n      overflow: hidden;\n    }\n    .bg-wrapper-0{\n      right: ").concat(this.attrs.width / 2, "px;\n    }\n    .bg-wrapper-1{\n      left: ").concat(this.attrs.width / 2, "px;\n    }\n    .bg{\n      width: ").concat(this.attrs.width, "px;\n      height: ").concat(this.attrs.height, "px;\n      background:url(").concat(this.attrs.bgUrl, ") no-repeat;\n      background-size: contain;\n      position: relative;\n    }\n      \n  ");
+      return "\n      .wrapper{\n        width: ".concat(this.attrs.width, "px;\n        height: ").concat(this.attrs.height, "px;\n        display:flex;\n        font-family: 'Poppins', sans-serif;\n      }\n      .bg-wrapper{\n        width: ").concat(this.attrs.width / 4, "px;\n        height: ").concat(this.attrs.height, "px;\n        display:flex;\n        font-family: 'Poppins', sans-serif;\n        position: relative;\n        overflow: hidden;\n        top: -").concat(this.attrs.height, "px;\n      }\n      .bg{\n        width: ").concat(this.attrs.width, "px;\n        height: ").concat(this.attrs.height, "px;\n        background:url(").concat(this.attrs.bgUrl, ") no-repeat;\n        background-size: cover;\n        position: absolute;\n      }\n      .bg-0{\n        left:0\n      }\n      .bg-1{\n        left:-").concat(this.attrs.width - this.attrs.width / 4 * 3, "px;\n      }\n      .bg-2{\n        left:-").concat(this.attrs.width - this.attrs.width / 4 * 2, "px;\n      }\n      .bg-3{\n        left:-").concat(this.attrs.width - this.attrs.width / 4, "px;\n      }\n    ");
     }
-  }]);
-
-  return TwoSidesReveal;
-}(MotorCortex__default['default'].HTMLClip);
-
-var TwoSidesReveal_1 = TwoSidesReveal;
-
-var Anime$3 = MotorCortex__default['default'].loadPlugin(index);
-
-var ColumnReveal =
-/*#__PURE__*/
-function (_MotorCortex$HTMLClip) {
-  _inherits(ColumnReveal, _MotorCortex$HTMLClip);
-
-  function ColumnReveal() {
-    _classCallCheck(this, ColumnReveal);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(ColumnReveal).apply(this, arguments));
-  }
-
-  _createClass(ColumnReveal, [{
+  }, {
     key: "buildTree",
     value: function buildTree() {
       var bgPositionOneIn = new Anime$3.Anime({
@@ -2557,7 +2597,7 @@ function (_MotorCortex$HTMLClip) {
         duration: 1000 * this.attrs.timing,
         selector: ".bg-wrapper",
         easing: this.attrs.easing,
-        delay: "@expression(randomInt(0,".concat(Math.floor(500 * this.attrs.timing), "))")
+        delay: "@expression(random(0,".concat(Math.floor(500 * this.attrs.timing), "))")
       });
       this.addIncident(bgPositionOneIn, 0);
 
@@ -2570,12 +2610,30 @@ function (_MotorCortex$HTMLClip) {
           duration: 1000 * this.attrs.timing,
           selector: ".bg-wrapper",
           easing: this.attrs.easing,
-          delay: "@expression(randomInt(0,".concat(Math.floor(500 * this.attrs.timing), "))")
+          delay: "@expression(random(0,".concat(Math.floor(500 * this.attrs.timing), "))")
         });
         this.addIncident(bgPositionOneOut, this.attrs.exitStart);
       }
     }
-  }, {
+  }]);
+
+  return ColumnReveal;
+}(MotorCortex.HTMLClip);
+
+var Anime$2 = MotorCortex.loadPlugin(index$1);
+
+var RowReveal = /*#__PURE__*/function (_HTMLClip) {
+  _inherits$1(RowReveal, _HTMLClip);
+
+  var _super = _createSuper$1(RowReveal);
+
+  function RowReveal() {
+    _classCallCheck$1(this, RowReveal);
+
+    return _super.apply(this, arguments);
+  }
+
+  _createClass$1(RowReveal, [{
     key: "font",
     get: function get() {
       return [{
@@ -2586,37 +2644,17 @@ function (_MotorCortex$HTMLClip) {
   }, {
     key: "html",
     get: function get() {
-      return "\n    <div class=\"wrapper\">\n      <div class=\"bg-wrapper\">\n        <div class=\"bg bg-0\"></div>\n      </div>\n      <div class=\"bg-wrapper\">\n        <div class=\"bg bg-1\"></div>\n      </div>\n      <div class=\"bg-wrapper\">\n        <div class=\"bg bg-2\"></div>\n      </div>\n      <div class=\"bg-wrapper\">\n        <div class=\"bg bg-3\"></div>\n      </div>\n\t  </div>\n    ";
+      return "\n      <div class=\"wrapper\">\n        <div class=\"bg-wrapper\">\n          <div class=\"bg bg-0\"></div>\n        </div>\n        <div class=\"bg-wrapper\">\n          <div class=\"bg bg-1\"></div>\n        </div>\n        <div class=\"bg-wrapper\">\n          <div class=\"bg bg-2\"></div>\n        </div>\n        <div class=\"bg-wrapper\">\n          <div class=\"bg bg-3\"></div>\n        </div>\n  \t  </div>\n    ";
     }
   }, {
     key: "css",
     get: function get() {
-      return "\n    .wrapper{\n      width: ".concat(this.attrs.width, "px;\n      height: ").concat(this.attrs.height, "px;\n      display:flex;\n      font-family: 'Poppins', sans-serif;\n      \n    }\n    .bg-wrapper{\n      width: ").concat(this.attrs.width / 4, "px;\n      height: ").concat(this.attrs.height, "px;\n      display:flex;\n      font-family: 'Poppins', sans-serif;\n      position: relative;\n      overflow: hidden;\n      top: -").concat(this.attrs.height, "px;\n    }\n    .bg{\n      width: ").concat(this.attrs.width, "px;\n      height: ").concat(this.attrs.height, "px;\n      background:url(").concat(this.attrs.bgUrl, ") no-repeat;\n      background-size: cover;\n      position: absolute;\n    }\n    .bg-0{\n      left:0\n    }\n    .bg-1{\n      left:-").concat(this.attrs.width - this.attrs.width / 4 * 3, "px;\n    }\n    .bg-2{\n      left:-").concat(this.attrs.width - this.attrs.width / 4 * 2, "px;\n    }\n    .bg-3{\n      left:-").concat(this.attrs.width - this.attrs.width / 4, "px;\n    }\n      \n  ");
+      return "\n      .wrapper{\n        width: ".concat(this.attrs.width, "px;\n        height: ").concat(this.attrs.height, "px;\n        display:flex;\n        font-family: 'Poppins', sans-serif;\n        flex-direction: column;\n      }\n      .bg-wrapper{\n        width: ").concat(this.attrs.width, "px;\n        height: ").concat(this.attrs.height / 4, "px;\n        display:flex;\n        font-family: 'Poppins', sans-serif;\n        position: relative;\n        overflow: hidden;\n        left:").concat(this.attrs.width, "px;\n      }\n      .bg{\n        width: ").concat(this.attrs.width, "px;\n        height: ").concat(this.attrs.height, "px;\n        background:url(").concat(this.attrs.bgUrl, ") no-repeat;\n        background-size: cover;\n        position: relative;\n      }\n      .bg-0{\n        top:0\n      }\n      .bg-1{\n        top:-").concat(this.attrs.height - this.attrs.height / 4 * 3, "px;\n      }\n      .bg-2{\n        top:-").concat(this.attrs.height - this.attrs.height / 4 * 2, "px;\n      }\n      .bg-3{\n        top:-").concat(this.attrs.height - this.attrs.height / 4, "px;\n      }\n    ");
     }
-  }]);
-
-  return ColumnReveal;
-}(MotorCortex__default['default'].HTMLClip);
-
-var ColumnReveal_1 = ColumnReveal;
-
-var Anime$4 = MotorCortex__default['default'].loadPlugin(index);
-
-var RowReveal =
-/*#__PURE__*/
-function (_MotorCortex$HTMLClip) {
-  _inherits(RowReveal, _MotorCortex$HTMLClip);
-
-  function RowReveal() {
-    _classCallCheck(this, RowReveal);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(RowReveal).apply(this, arguments));
-  }
-
-  _createClass(RowReveal, [{
+  }, {
     key: "buildTree",
     value: function buildTree() {
-      var bgPositionOneIn = new Anime$4.Anime({
+      var bgPositionOneIn = new Anime$2.Anime({
         animatedAttrs: {
           left: "0px"
         }
@@ -2629,7 +2667,7 @@ function (_MotorCortex$HTMLClip) {
       this.addIncident(bgPositionOneIn, 0);
 
       if (this.attrs.bgOut === true) {
-        var bgPositionOneOut = new Anime$4.Anime({
+        var bgPositionOneOut = new Anime$2.Anime({
           animatedAttrs: {
             left: "-".concat(this.attrs.width, "px")
           }
@@ -2642,62 +2680,25 @@ function (_MotorCortex$HTMLClip) {
         this.addIncident(bgPositionOneOut, this.attrs.exitStart);
       }
     }
-  }, {
-    key: "font",
-    get: function get() {
-      return [{
-        type: "google-font",
-        src: "https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,400;0,500;0,800;1,700;1,800;1,900&display=swap"
-      }];
-    }
-  }, {
-    key: "html",
-    get: function get() {
-      return "\n    <div class=\"wrapper\">\n      <div class=\"bg-wrapper\">\n        <div class=\"bg bg-0\"></div>\n      </div>\n      <div class=\"bg-wrapper\">\n        <div class=\"bg bg-1\"></div>\n      </div>\n      <div class=\"bg-wrapper\">\n        <div class=\"bg bg-2\"></div>\n      </div>\n      <div class=\"bg-wrapper\">\n        <div class=\"bg bg-3\"></div>\n      </div>\n\t  </div>\n    ";
-    }
-  }, {
-    key: "css",
-    get: function get() {
-      return "\n    .wrapper{\n      width: ".concat(this.attrs.width, "px;\n      height: ").concat(this.attrs.height, "px;\n      display:flex;\n      font-family: 'Poppins', sans-serif;\n      flex-direction: column;\n    }\n    .bg-wrapper{\n      width: ").concat(this.attrs.width, "px;\n      height: ").concat(this.attrs.height / 4, "px;\n      display:flex;\n      font-family: 'Poppins', sans-serif;\n      position: relative;\n      overflow: hidden;\n      left:").concat(this.attrs.width, "px;\n    }\n    .bg{\n      width: ").concat(this.attrs.width, "px;\n      height: ").concat(this.attrs.height, "px;\n      background:url(").concat(this.attrs.bgUrl, ") no-repeat;\n      background-size: cover;\n      position: relative;\n    }\n    .bg-0{\n      top:0\n    }\n    .bg-1{\n      top:-").concat(this.attrs.height - this.attrs.height / 4 * 3, "px;\n    }\n    .bg-2{\n      top:-").concat(this.attrs.height - this.attrs.height / 4 * 2, "px;\n    }\n    .bg-3{\n      top:-").concat(this.attrs.height - this.attrs.height / 4, "px;\n    }\n      \n  ");
-    }
   }]);
 
   return RowReveal;
-}(MotorCortex__default['default'].HTMLClip);
+}(MotorCortex.HTMLClip);
 
-var RowReveal_1 = RowReveal;
+var Anime$1 = MotorCortex.loadPlugin(index$1);
 
-var Anime$5 = MotorCortex__default['default'].loadPlugin(index);
+var Grid = /*#__PURE__*/function (_HTMLClip) {
+  _inherits$1(Grid, _HTMLClip);
 
-var Grid =
-/*#__PURE__*/
-function (_MotorCortex$HTMLClip) {
-  _inherits(Grid, _MotorCortex$HTMLClip);
+  var _super = _createSuper$1(Grid);
 
   function Grid() {
-    _classCallCheck(this, Grid);
+    _classCallCheck$1(this, Grid);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Grid).apply(this, arguments));
+    return _super.apply(this, arguments);
   }
 
-  _createClass(Grid, [{
-    key: "buildTree",
-    value: function buildTree() {
-      var gridOpacity = new Anime$5.Anime({
-        animatedAttrs: {
-          opacity: 0
-        },
-        initialValues: {
-          opacity: 0.7
-        }
-      }, {
-        duration: 1000 * this.attrs.timing,
-        selector: ".grid",
-        delay: "@expression(randomInt(0,".concat(Math.floor(1000 * this.attrs.timing), "))")
-      });
-      this.addIncident(gridOpacity, 0);
-    }
-  }, {
+  _createClass$1(Grid, [{
     key: "font",
     get: function get() {
       return [{
@@ -2720,32 +2721,65 @@ function (_MotorCortex$HTMLClip) {
   }, {
     key: "css",
     get: function get() {
-      return "\n    .wrapper{\n      width: ".concat(this.attrs.width, "px;\n      height: ").concat(this.attrs.height, "px;\n      font-family: 'Poppins', sans-serif;\n      display: grid;\n      grid-template-columns: repeat(").concat(this.attrs.columns, ", 1fr);\n      justify-items: center;\n    }\n    .grid{\n      background: ").concat(this.attrs.color, ";\n      width: ").concat(this.attrs.width / this.attrs.columns, "px;\n      height: ").concat(this.attrs.height / this.attrs.rows, "px;\n    }\n      \n  ");
+      return "\n      .wrapper{\n        width: ".concat(this.attrs.width, "px;\n        height: ").concat(this.attrs.height, "px;\n        font-family: 'Poppins', sans-serif;\n        display: grid;\n        grid-template-columns: repeat(").concat(this.attrs.columns, ", 1fr);\n        justify-items: center;\n      }\n      .grid{\n        background: ").concat(this.attrs.color, ";\n        width: ").concat(this.attrs.width / this.attrs.columns, "px;\n        height: ").concat(this.attrs.height / this.attrs.rows, "px;\n      }\n  ");
+    }
+  }, {
+    key: "buildTree",
+    value: function buildTree() {
+      var gridOpacity = new Anime$1.Anime({
+        animatedAttrs: {
+          opacity: 0
+        },
+        initialValues: {
+          opacity: 0.7
+        }
+      }, {
+        duration: 1000 * this.attrs.timing,
+        selector: ".grid",
+        delay: "@expression(random(0,".concat(Math.floor(1000 * this.attrs.timing), "))")
+      });
+      this.addIncident(gridOpacity, 0);
     }
   }]);
 
   return Grid;
-}(MotorCortex__default['default'].HTMLClip);
+}(MotorCortex.HTMLClip);
 
-var Grid_1 = Grid;
+var Anime = MotorCortex.loadPlugin(index$1);
 
-var Anime$6 = MotorCortex__default['default'].loadPlugin(index);
+var ThreeSidesReveal = /*#__PURE__*/function (_HTMLClip) {
+  _inherits$1(ThreeSidesReveal, _HTMLClip);
 
-var ThreeSidesReveal =
-/*#__PURE__*/
-function (_MotorCortex$HTMLClip) {
-  _inherits(ThreeSidesReveal, _MotorCortex$HTMLClip);
+  var _super = _createSuper$1(ThreeSidesReveal);
 
   function ThreeSidesReveal() {
-    _classCallCheck(this, ThreeSidesReveal);
+    _classCallCheck$1(this, ThreeSidesReveal);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(ThreeSidesReveal).apply(this, arguments));
+    return _super.apply(this, arguments);
   }
 
-  _createClass(ThreeSidesReveal, [{
+  _createClass$1(ThreeSidesReveal, [{
+    key: "font",
+    get: function get() {
+      return [{
+        type: "google-font",
+        src: "https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,400;0,500;0,800;1,700;1,800;1,900&display=swap"
+      }];
+    }
+  }, {
+    key: "html",
+    get: function get() {
+      return "\n      <div class=\"wrapper\">\n        <div class=\"bg-wrapper bg-wrapper-0\">\n          <div class=\" bg-wrapper-in\">\n            <div class=\"bg bg-0\"><div class=\"bg-in\"></div></div>\n          </div>\n          <div class=\" bg-wrapper-in\">\n            <div class=\"bg bg-1\"><div class=\"bg-in\"></div></div>\n          </div>\n        </div>\n        <div class=\"bg-wrapper  bg-wrapper-1\">\n          <div class=\"bg-wrapper-full-width bg-wrapper-in \">\n            <div class=\"bg bg-2\"><div class=\"bg-in\"></div></div>.\n          </div>\n        </div>\n  \t  </div>\n    ";
+    }
+  }, {
+    key: "css",
+    get: function get() {
+      return "\n      .wrapper{\n        width: ".concat(this.attrs.width, "px;\n        height: ").concat(this.attrs.height, "px;\n        display:flex;\n        font-family: 'Poppins', sans-serif;\n        flex-direction: column;\n      }\n      .bg-wrapper{\n        width: ").concat(this.attrs.width, "px;\n        height: ").concat(this.attrs.height, "px;\n        display:flex;\n        font-family: 'Poppins', sans-serif;\n        position: relative;\n        overflow: hidden;\n      }\n\n      .bg-wrapper-0{\n        height: ").concat(this.attrs.height * 0.65, "px;\n      }\n      .bg-wrapper-1{\n        height: ").concat(this.attrs.height * 0.35, "px;\n      }\n      .bg-wrapper-in{\n        width: ").concat(this.attrs.width / 2, "px;\n        height: ").concat(this.attrs.height * 0.65, "px;\n        display:flex;\n        font-family: 'Poppins', sans-serif;\n        position: relative;\n        overflow: hidden;\n      }\n      .bg-wrapper-full-width{\n        width: ").concat(this.attrs.width, "px;\n      }\n      .bg{\n        width: ").concat(this.attrs.width, "px;\n        height: ").concat(this.attrs.height, "px;\n        background:url(").concat(this.attrs.bgUrl, ") no-repeat;\n        background-size: cover;\n        position: absolute;\n      }\n      .bg-0{\n        left:0\n      }\n      .bg-1{\n        left:-").concat(this.attrs.width / 2, "px;\n      }\n      .bg-2{\n        top:-").concat(this.attrs.height * 0.65, "px;\n      }\n      .bg-in{\n        background:").concat(this.attrs.overlayColor, ";\n        width: ").concat(this.attrs.width, "px;\n        height: ").concat(this.attrs.height, "px;\n      }\n    ");
+    }
+  }, {
     key: "buildTree",
     value: function buildTree() {
-      var bgWrapperBgColor = new Anime$6.Anime({
+      var bgWrapperBgColor = new Anime.Anime({
         animatedAttrs: {
           opacity: 0
         },
@@ -2759,7 +2793,7 @@ function (_MotorCortex$HTMLClip) {
         delay: "@stagger(200, ".concat(Math.floor(500 * this.attrs.timing), ",0)")
       });
       this.addIncident(bgWrapperBgColor, 0);
-      var bgWrapperOpacity = new Anime$6.Anime({
+      var bgWrapperOpacity = new Anime.Anime({
         animatedAttrs: {
           opacity: 1
         },
@@ -2773,7 +2807,7 @@ function (_MotorCortex$HTMLClip) {
         delay: "@stagger(0, ".concat(Math.floor(500 * this.attrs.timing), ",0)")
       });
       this.addIncident(bgWrapperOpacity, 100);
-      var bgOne = new Anime$6.Anime({
+      var bgOne = new Anime.Anime({
         animatedAttrs: {
           left: "0px"
         },
@@ -2786,7 +2820,7 @@ function (_MotorCortex$HTMLClip) {
         easing: "easeOutQuart"
       });
       this.addIncident(bgOne, 0);
-      var bgTwo = new Anime$6.Anime({
+      var bgTwo = new Anime.Anime({
         animatedAttrs: {
           top: "0px"
         },
@@ -2799,7 +2833,7 @@ function (_MotorCortex$HTMLClip) {
         easing: "easeOutQuart"
       });
       this.addIncident(bgTwo, 400);
-      var bgThree = new Anime$6.Anime({
+      var bgThree = new Anime.Anime({
         animatedAttrs: {
           left: "0px"
         },
@@ -2812,7 +2846,7 @@ function (_MotorCortex$HTMLClip) {
         easing: "easeOutQuart"
       });
       this.addIncident(bgThree, 400);
-      var bgScale = new Anime$6.Anime({
+      var bgScale = new Anime.Anime({
         animatedAttrs: {
           transform: {
             scale: 1
@@ -2830,7 +2864,7 @@ function (_MotorCortex$HTMLClip) {
       this.addIncident(bgScale, 1000);
 
       if (this.attrs.grid === true) {
-        var Grid = new Grid_1({
+        var Grid$1 = new Grid({
           width: this.attrs.width,
           height: this.attrs.height,
           color: this.attrs.gridColor,
@@ -2840,33 +2874,13 @@ function (_MotorCortex$HTMLClip) {
         }, {
           selector: ".bg"
         });
-        this.addIncident(Grid, 0);
+        this.addIncident(Grid$1, 0);
       }
-    }
-  }, {
-    key: "font",
-    get: function get() {
-      return [{
-        type: "google-font",
-        src: "https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,400;0,500;0,800;1,700;1,800;1,900&display=swap"
-      }];
-    }
-  }, {
-    key: "html",
-    get: function get() {
-      return "\n    <div class=\"wrapper\">\n      <div class=\"bg-wrapper bg-wrapper-0\">\n        <div class=\" bg-wrapper-in\">\n          <div class=\"bg bg-0\"><div class=\"bg-in\"></div></div>\n        </div>\n        <div class=\" bg-wrapper-in\">\n          <div class=\"bg bg-1\"><div class=\"bg-in\"></div></div>\n        </div>\n      </div>\n      <div class=\"bg-wrapper  bg-wrapper-1\">\n        <div class=\"bg-wrapper-full-width bg-wrapper-in \">\n          <div class=\"bg bg-2\"><div class=\"bg-in\"></div></div>.\n        </div>\n      </div>\n\t  </div>\n    ";
-    }
-  }, {
-    key: "css",
-    get: function get() {
-      return "\n    .wrapper{\n      width: ".concat(this.attrs.width, "px;\n      height: ").concat(this.attrs.height, "px;\n      display:flex;\n      font-family: 'Poppins', sans-serif;\n      flex-direction: column;\n    }\n    .bg-wrapper{\n      width: ").concat(this.attrs.width, "px;\n      height: ").concat(this.attrs.height, "px;\n      display:flex;\n      font-family: 'Poppins', sans-serif;\n      position: relative;\n      overflow: hidden;\n    }\n\n    .bg-wrapper-0{\n      height: ").concat(this.attrs.height * 0.65, "px;\n    }\n    .bg-wrapper-1{\n      height: ").concat(this.attrs.height * 0.35, "px;\n    }\n    .bg-wrapper-in{\n      width: ").concat(this.attrs.width / 2, "px;\n      height: ").concat(this.attrs.height * 0.65, "px;\n      display:flex;\n      font-family: 'Poppins', sans-serif;\n      position: relative;\n      overflow: hidden;\n    }\n    .bg-wrapper-full-width{\n      width: ").concat(this.attrs.width, "px;\n    }\n    .bg{\n      width: ").concat(this.attrs.width, "px;\n      height: ").concat(this.attrs.height, "px;\n      background:url(").concat(this.attrs.bgUrl, ") no-repeat;\n      background-size: cover;\n      position: absolute;\n    }\n    .bg-0{\n      left:0\n    }\n    .bg-1{\n      left:-").concat(this.attrs.width / 2, "px;\n    }\n    .bg-2{\n      top:-").concat(this.attrs.height * 0.65, "px;\n    }\n    .bg-in{\n      background:").concat(this.attrs.overlayColor, ";\n      width: ").concat(this.attrs.width, "px;\n      height: ").concat(this.attrs.height, "px;\n    }\n  \n  ");
     }
   }]);
 
   return ThreeSidesReveal;
-}(MotorCortex__default['default'].HTMLClip);
-
-var ThreeSidesReveal_1 = ThreeSidesReveal;
+}(MotorCortex.HTMLClip);
 
 var BgOpenerValidation = {
   width: {
@@ -3045,37 +3059,37 @@ var ThreeSidesRevealValidation = {
   }
 };
 
-var name$1 = "@kissmybutton/motorcortex-backgrounds";
-var version$1 = "0.0.9";
+var name = "@kissmybutton/motorcortex-backgrounds";
+var version = "0.0.9";
 
-var index$1 = {
-  npm_name: name$1,
-  version: version$1,
+var index = {
+  npm_name: name,
+  version: version,
   incidents: [{
-    exportable: BgOpener_1,
+    exportable: BgOpener,
     name: "BgOpener",
-    attributesValidationRules: _objectSpread2({}, BgOpenerValidation)
+    attributesValidationRules: _objectSpread2$1({}, BgOpenerValidation)
   }, {
-    exportable: TwoSidesReveal_1,
+    exportable: TwoSidesReveal,
     name: "TwoSidesReveal",
-    attributesValidationRules: _objectSpread2({}, TwoSidesRevealValidation)
+    attributesValidationRules: _objectSpread2$1({}, TwoSidesRevealValidation)
   }, {
-    exportable: ColumnReveal_1,
+    exportable: ColumnReveal,
     name: "ColumnReveal",
-    attributesValidationRules: _objectSpread2({}, ColumnRevealValidation)
+    attributesValidationRules: _objectSpread2$1({}, ColumnRevealValidation)
   }, {
-    exportable: RowReveal_1,
+    exportable: RowReveal,
     name: "RowReveal",
-    attributesValidationRules: _objectSpread2({}, RowRevealValidation)
+    attributesValidationRules: _objectSpread2$1({}, RowRevealValidation)
   }, {
-    exportable: ThreeSidesReveal_1,
+    exportable: ThreeSidesReveal,
     name: "ThreeSidesReveal",
-    attributesValidationRules: _objectSpread2({}, ThreeSidesRevealValidation)
+    attributesValidationRules: _objectSpread2$1({}, ThreeSidesRevealValidation)
   }, {
-    exportable: Grid_1,
+    exportable: Grid,
     name: "Grid",
-    attributesValidationRules: _objectSpread2({}, GridValidation)
+    attributesValidationRules: _objectSpread2$1({}, GridValidation)
   }]
 };
 
-module.exports = index$1;
+module.exports = index;

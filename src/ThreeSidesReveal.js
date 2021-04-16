@@ -1,8 +1,10 @@
-const MotorCortex = require("@kissmybutton/motorcortex");
-const grid = require("./Grid");
-const AnimeDefinition = require("@kissmybutton/motorcortex-anime");
-const Anime = MotorCortex.loadPlugin(AnimeDefinition);
-class ThreeSidesReveal extends MotorCortex.HTMLClip {
+import { HTMLClip, loadPlugin } from "@kissmybutton/motorcortex";
+import AnimeDefinition from "@kissmybutton/motorcortex-anime";
+import grid from "./Grid";
+
+const Anime = loadPlugin(AnimeDefinition);
+
+export default class ThreeSidesReveal extends HTMLClip {
   get font() {
     return [
       {
@@ -14,82 +16,81 @@ class ThreeSidesReveal extends MotorCortex.HTMLClip {
 
   get html() {
     return `
-    <div class="wrapper">
-      <div class="bg-wrapper bg-wrapper-0">
-        <div class=" bg-wrapper-in">
-          <div class="bg bg-0"><div class="bg-in"></div></div>
+      <div class="wrapper">
+        <div class="bg-wrapper bg-wrapper-0">
+          <div class=" bg-wrapper-in">
+            <div class="bg bg-0"><div class="bg-in"></div></div>
+          </div>
+          <div class=" bg-wrapper-in">
+            <div class="bg bg-1"><div class="bg-in"></div></div>
+          </div>
         </div>
-        <div class=" bg-wrapper-in">
-          <div class="bg bg-1"><div class="bg-in"></div></div>
+        <div class="bg-wrapper  bg-wrapper-1">
+          <div class="bg-wrapper-full-width bg-wrapper-in ">
+            <div class="bg bg-2"><div class="bg-in"></div></div>.
+          </div>
         </div>
-      </div>
-      <div class="bg-wrapper  bg-wrapper-1">
-        <div class="bg-wrapper-full-width bg-wrapper-in ">
-          <div class="bg bg-2"><div class="bg-in"></div></div>.
-        </div>
-      </div>
-	  </div>
+  	  </div>
     `;
   }
 
   get css() {
     return `
-    .wrapper{
-      width: ${this.attrs.width}px;
-      height: ${this.attrs.height}px;
-      display:flex;
-      font-family: 'Poppins', sans-serif;
-      flex-direction: column;
-    }
-    .bg-wrapper{
-      width: ${this.attrs.width}px;
-      height: ${this.attrs.height}px;
-      display:flex;
-      font-family: 'Poppins', sans-serif;
-      position: relative;
-      overflow: hidden;
-    }
+      .wrapper{
+        width: ${this.attrs.width}px;
+        height: ${this.attrs.height}px;
+        display:flex;
+        font-family: 'Poppins', sans-serif;
+        flex-direction: column;
+      }
+      .bg-wrapper{
+        width: ${this.attrs.width}px;
+        height: ${this.attrs.height}px;
+        display:flex;
+        font-family: 'Poppins', sans-serif;
+        position: relative;
+        overflow: hidden;
+      }
 
-    .bg-wrapper-0{
-      height: ${this.attrs.height * 0.65}px;
-    }
-    .bg-wrapper-1{
-      height: ${this.attrs.height * 0.35}px;
-    }
-    .bg-wrapper-in{
-      width: ${this.attrs.width / 2}px;
-      height: ${this.attrs.height * 0.65}px;
-      display:flex;
-      font-family: 'Poppins', sans-serif;
-      position: relative;
-      overflow: hidden;
-    }
-    .bg-wrapper-full-width{
-      width: ${this.attrs.width}px;
-    }
-    .bg{
-      width: ${this.attrs.width}px;
-      height: ${this.attrs.height}px;
-      background:url(${this.attrs.bgUrl}) no-repeat;
-      background-size: cover;
-      position: absolute;
-    }
-    .bg-0{
-      left:0
-    }
-    .bg-1{
-      left:-${this.attrs.width / 2}px;
-    }
-    .bg-2{
-      top:-${this.attrs.height * 0.65}px;
-    }
-    .bg-in{
-      background:${this.attrs.overlayColor};
-      width: ${this.attrs.width}px;
-      height: ${this.attrs.height}px;
-    }
-  
-  `;
+      .bg-wrapper-0{
+        height: ${this.attrs.height * 0.65}px;
+      }
+      .bg-wrapper-1{
+        height: ${this.attrs.height * 0.35}px;
+      }
+      .bg-wrapper-in{
+        width: ${this.attrs.width / 2}px;
+        height: ${this.attrs.height * 0.65}px;
+        display:flex;
+        font-family: 'Poppins', sans-serif;
+        position: relative;
+        overflow: hidden;
+      }
+      .bg-wrapper-full-width{
+        width: ${this.attrs.width}px;
+      }
+      .bg{
+        width: ${this.attrs.width}px;
+        height: ${this.attrs.height}px;
+        background:url(${this.attrs.bgUrl}) no-repeat;
+        background-size: cover;
+        position: absolute;
+      }
+      .bg-0{
+        left:0
+      }
+      .bg-1{
+        left:-${this.attrs.width / 2}px;
+      }
+      .bg-2{
+        top:-${this.attrs.height * 0.65}px;
+      }
+      .bg-in{
+        background:${this.attrs.overlayColor};
+        width: ${this.attrs.width}px;
+        height: ${this.attrs.height}px;
+      }
+    `;
   }
 
   buildTree() {
@@ -216,5 +217,3 @@ class ThreeSidesReveal extends MotorCortex.HTMLClip {
     }
   }
 }
-
-module.exports = ThreeSidesReveal;

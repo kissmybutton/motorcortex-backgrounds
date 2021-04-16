@@ -1,8 +1,9 @@
-const MotorCortex = require("@kissmybutton/motorcortex");
-const AnimeDefinition = require("@kissmybutton/motorcortex-anime");
-const Anime = MotorCortex.loadPlugin(AnimeDefinition);
+import { HTMLClip, loadPlugin } from "@kissmybutton/motorcortex";
+import AnimeDefinition from "@kissmybutton/motorcortex-anime";
 
-class Grid extends MotorCortex.HTMLClip {
+const Anime = loadPlugin(AnimeDefinition);
+
+export default class Grid extends HTMLClip {
   get font() {
     return [
       {
@@ -28,20 +29,19 @@ class Grid extends MotorCortex.HTMLClip {
 
   get css() {
     return `
-    .wrapper{
-      width: ${this.attrs.width}px;
-      height: ${this.attrs.height}px;
-      font-family: 'Poppins', sans-serif;
-      display: grid;
-      grid-template-columns: repeat(${this.attrs.columns}, 1fr);
-      justify-items: center;
-    }
-    .grid{
-      background: ${this.attrs.color};
-      width: ${this.attrs.width / this.attrs.columns}px;
-      height: ${this.attrs.height / this.attrs.rows}px;
-    }
-      
+      .wrapper{
+        width: ${this.attrs.width}px;
+        height: ${this.attrs.height}px;
+        font-family: 'Poppins', sans-serif;
+        display: grid;
+        grid-template-columns: repeat(${this.attrs.columns}, 1fr);
+        justify-items: center;
+      }
+      .grid{
+        background: ${this.attrs.color};
+        width: ${this.attrs.width / this.attrs.columns}px;
+        height: ${this.attrs.height / this.attrs.rows}px;
+      }
   `;
   }
 
@@ -58,13 +58,9 @@ class Grid extends MotorCortex.HTMLClip {
       {
         duration: 1000 * this.attrs.timing,
         selector: ".grid",
-        delay: `@expression(randomInt(0,${Math.floor(
-          1000 * this.attrs.timing
-        )}))`
+        delay: `@expression(random(0,${Math.floor(1000 * this.attrs.timing)}))`
       }
     );
     this.addIncident(gridOpacity, 0);
   }
 }
-
-module.exports = Grid;

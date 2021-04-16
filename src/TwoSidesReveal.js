@@ -1,8 +1,9 @@
-const MotorCortex = require("@kissmybutton/motorcortex");
-const AnimeDefinition = require("@kissmybutton/motorcortex-anime");
-const Anime = MotorCortex.loadPlugin(AnimeDefinition);
+import { HTMLClip, loadPlugin } from "@kissmybutton/motorcortex";
+import AnimeDefinition from "@kissmybutton/motorcortex-anime";
 
-class TwoSidesReveal extends MotorCortex.HTMLClip {
+const Anime = loadPlugin(AnimeDefinition);
+
+export default class TwoSidesReveal extends HTMLClip {
   get font() {
     return [
       {
@@ -14,50 +15,48 @@ class TwoSidesReveal extends MotorCortex.HTMLClip {
 
   get html() {
     return `
-    <div class="wrapper">
-      <div class="bg-wrapper bg-wrapper-0">
-        <div class="bg bg-0"></div>
-      </div>
-      <div class="bg-wrapper bg-wrapper-1">
-        <div class="bg bg-1"></div>
-      </div>
-
-	  </div>
+      <div class="wrapper">
+        <div class="bg-wrapper bg-wrapper-0">
+          <div class="bg bg-0"></div>
+        </div>
+        <div class="bg-wrapper bg-wrapper-1">
+          <div class="bg bg-1"></div>
+        </div>
+  	  </div>
     `;
   }
 
   get css() {
     return `
-    .wrapper{
-      width: ${this.attrs.width}px;
-      height: ${this.attrs.height}px;
-      display:flex;
-      font-family: 'Poppins', sans-serif;
-      overflow: hidden;
-    }
-    .bg-wrapper{
-      width: ${this.attrs.width}px;
-      height: ${this.attrs.height}px;
-      display:flex;
-      font-family: 'Poppins', sans-serif;
-      position: absolute;
-      overflow: hidden;
-    }
-    .bg-wrapper-0{
-      right: ${this.attrs.width / 2}px;
-    }
-    .bg-wrapper-1{
-      left: ${this.attrs.width / 2}px;
-    }
-    .bg{
-      width: ${this.attrs.width}px;
-      height: ${this.attrs.height}px;
-      background:url(${this.attrs.bgUrl}) no-repeat;
-      background-size: contain;
-      position: relative;
-    }
-      
-  `;
+      .wrapper{
+        width: ${this.attrs.width}px;
+        height: ${this.attrs.height}px;
+        display:flex;
+        font-family: 'Poppins', sans-serif;
+        overflow: hidden;
+      }
+      .bg-wrapper{
+        width: ${this.attrs.width}px;
+        height: ${this.attrs.height}px;
+        display:flex;
+        font-family: 'Poppins', sans-serif;
+        position: absolute;
+        overflow: hidden;
+      }
+      .bg-wrapper-0{
+        right: ${this.attrs.width / 2}px;
+      }
+      .bg-wrapper-1{
+        left: ${this.attrs.width / 2}px;
+      }
+      .bg{
+        width: ${this.attrs.width}px;
+        height: ${this.attrs.height}px;
+        background:url(${this.attrs.bgUrl}) no-repeat;
+        background-size: contain;
+        position: relative;
+      }
+    `;
   }
 
   buildTree() {
@@ -95,5 +94,3 @@ class TwoSidesReveal extends MotorCortex.HTMLClip {
     this.addIncident(bgPositionRigth, 0);
   }
 }
-
-module.exports = TwoSidesReveal;
