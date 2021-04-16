@@ -3060,7 +3060,7 @@ var ThreeSidesRevealValidation = {
 };
 
 var name = "@kissmybutton/motorcortex-backgrounds";
-var version = "0.0.9";
+var version = "0.0.11";
 
 var index = {
   npm_name: name,
