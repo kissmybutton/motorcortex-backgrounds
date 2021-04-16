@@ -5,9 +5,12 @@ node_modules
 coverage
 
 # Output folders
+demo/bundle.js
 build
 compiled
 .nyc_output
+
+dist
 
 # Cachses
 .awcache
