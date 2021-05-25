@@ -58,7 +58,7 @@ export default class Grid extends HTMLClip {
       {
         duration: 1000 * this.attrs.timing,
         selector: ".grid",
-        delay: `@expression(random(0,${Math.floor(1000 * this.attrs.timing)}))`
+        delay: `@expression(random(${Math.floor(1000 * this.attrs.timing)}))`
       }
     );
     this.addIncident(gridOpacity, 0);
