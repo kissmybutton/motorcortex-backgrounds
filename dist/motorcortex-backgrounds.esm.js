@@ -2322,7 +2322,7 @@ var animatedAttrs = {
   }
 };
 var name$1 = "@kissmybutton/motorcortex-anime";
-var version$1 = "2.1.14";
+var version$1 = "2.1.16";
 var index$1 = {
   npm_name: name$1,
   version: version$1,
@@ -3062,7 +3062,7 @@ var ThreeSidesRevealValidation = {
 };
 
 var name = "@kissmybutton/motorcortex-backgrounds";
-var version = "0.0.12";
+var version = "0.0.13";
 
 var index = {
   npm_name: name,
