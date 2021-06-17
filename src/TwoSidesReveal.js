@@ -70,7 +70,7 @@ export default class TwoSidesReveal extends HTMLClip {
         }
       },
       {
-        duration: 1000 * this.attrs.timing,
+        duration: 1000,
         selector: ".bg-0",
         easing: this.attrs.easing
       }
@@ -86,7 +86,7 @@ export default class TwoSidesReveal extends HTMLClip {
         }
       },
       {
-        duration: 1000 * this.attrs.timing,
+        duration: 1000,
         selector: ".bg-1",
         easing: this.attrs.easing
       }

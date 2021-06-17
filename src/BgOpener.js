@@ -64,7 +64,7 @@ export default class BgOpener extends HTMLClip {
         }
       },
       {
-        duration: 1000 * this.attrs.timing,
+        duration: 300,
         selector: ".bg-0",
         easing: this.attrs.easing
       }
@@ -82,7 +82,7 @@ export default class BgOpener extends HTMLClip {
         }
       },
       {
-        duration: 1000 * this.attrs.timing,
+        duration: 300,
         selector: ".bg-1",
         easing: this.attrs.easing
       }
@@ -102,7 +102,7 @@ export default class BgOpener extends HTMLClip {
         }
       },
       {
-        duration: 1000 * this.attrs.timing,
+        duration: 300,
         selector: ".bg-wrapper",
         easing: this.attrs.easing
       }
@@ -122,7 +122,7 @@ export default class BgOpener extends HTMLClip {
         }
       },
       {
-        duration: 1000 * this.attrs.timing,
+        duration: 300,
         selector: ".bg-wrapper-0",
         easing: this.attrs.easing
       }
@@ -142,7 +142,7 @@ export default class BgOpener extends HTMLClip {
         }
       },
       {
-        duration: 1000 * this.attrs.timing,
+        duration: 300,
         selector: ".bg-wrapper-1",
         easing: this.attrs.easing
       }
@@ -160,7 +160,7 @@ export default class BgOpener extends HTMLClip {
         // }
       },
       {
-        duration: 1000 * this.attrs.timing,
+        duration: 300,
         selector: ".bg-0",
         easing: this.attrs.easing
       }
@@ -178,7 +178,7 @@ export default class BgOpener extends HTMLClip {
         }
       },
       {
-        duration: 1000 * this.attrs.timing,
+        duration: 300,
         selector: ".bg-1",
         easing: this.attrs.easing
       }

@@ -46,7 +46,6 @@ const BgOpener = new Plugin.BgOpener(
 | width     | width of incident  | num |
 | height     | height of incident  | num |
 | bgUrl     | url of the bg image  | string |
-| timing     | incident duration multiplier  | num |
 | easing     | easing of the animation  | string |
 | exitStart     | the millisecond that we want to start the bg exiting  | num |
 
@@ -60,7 +59,6 @@ const TwoSidesReveal = new Plugin.TwoSidesReveal(
     height: 288,
     bgUrl:
     "https://kissmybutton.github.io/motorcortex-slides/demo/kissmybutonbg.jpg",
-    timing:1,
     easing:"easeInQuad",
   },
   {
@@ -76,7 +74,6 @@ const TwoSidesReveal = new Plugin.TwoSidesReveal(
 | width     | width of incident  | num |
 | height     | height of incident  | num |
 | bgUrl     | url of the bg image  | string |
-| timing     | incident duration multiplier  | num |
 | easing     | easing of the animation  | string |
 
 
@@ -90,7 +87,6 @@ const RowReveal = new Plugin.RowReveal(
     height: 288,
     bgUrl:
     "https://kissmybutton.github.io/motorcortex-slides/demo/kissmybutonbg.jpg",
-    timing:1,
     easing:"easeOutQuart",
     exitStart:2000,
     bgOut: true
@@ -108,7 +104,6 @@ const RowReveal = new Plugin.RowReveal(
 | width     | width of incident  | num |
 | height     | height of incident  | num |
 | bgUrl     | url of the bg image  | string |
-| timing     | incident duration multiplier  | num |
 | easing     | easing of the animation  | string |
 | exitStart     | the millisecond that we want to start the bg exiting  | num |
 | bgOut     | set true if we like to have a bg exit  | boolean |
@@ -123,7 +118,6 @@ const ColumnReveal = new Plugin.ColumnReveal(
     height: 288,
     bgUrl:
     "https://kissmybutton.github.io/motorcortex-slides/demo/kissmybutonbg.jpg",
-    timing:1,
     easing:"easeOutQuart",
     exitStart:2000,
     bgOut: true
@@ -141,7 +135,6 @@ const ColumnReveal = new Plugin.ColumnReveal(
 | width     | width of incident  | num |
 | height     | height of incident  | num |
 | bgUrl     | url of the bg image  | string |
-| timing     | incident duration multiplier  | num |
 | easing     | easing of the animation  | string |
 | exitStart     | the millisecond that we want to start the bg exiting  | num |
 | bgOut     | set true if we like to have a bg exit  | boolean |
@@ -158,7 +151,6 @@ const Grid = new Plugin.Grid(
     color: "#000",
     columns: 6,
     rows : 4,
-    timing:1,
   },
   {
     selector: ".container6"
@@ -173,7 +165,6 @@ const Grid = new Plugin.Grid(
 | width     | width of incident  | num |
 | height     | height of incident  | num |
 | color     | the color of the background  | hex,rgb |
-| timing     | incident duration multiplier  | num |
 | columns     | how many columns the grid will have  | num |
 | rows     | how many rows the grid will have  | num |
 
@@ -187,10 +178,9 @@ const ThreeSidesReveal = new Plugin.ThreeSidesReveal(
     width: 512,
     height: 288,
     bgUrl: "https://kissmybutton.github.io/motorcortex-slides/demo/bg3.jpg",
-    timing:1,
     overlayColor: "#ff0000",
     grid: true,
-    gridTiming:1,
+    gridDuration:1,
     gridColor: "#000",
     columns: 6,
     rows : 4,
@@ -208,10 +198,9 @@ const ThreeSidesReveal = new Plugin.ThreeSidesReveal(
 | width     | width of incident  | num |
 | height     | height of incident  | num |
 | bgUrl     | url of the bg image  | string |
-| timing     | incident duration multiplier  | num |
 | overlayColor   | overlay color of background  | hex,rgb |
 | grid     | set true if we like to have a gid  | boolean |
-| gridTiming     | incident duration multiplier of grid  | num |
+| gridDuration     | grid incident duration  | num |
 | gridColor     | the color of the background  | hex,rgb |
 | columns     | how many columns the grid will have  | num |
 | rows     | how many rows the grid will have  | num |

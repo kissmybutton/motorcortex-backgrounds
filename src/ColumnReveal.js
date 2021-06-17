@@ -79,10 +79,10 @@ export default class ColumnReveal extends HTMLClip {
         }
       },
       {
-        duration: 1000 * this.attrs.timing,
+        duration: 1000,
         selector: ".bg-wrapper",
         easing: this.attrs.easing,
-        delay: `@expression(random(${Math.floor(500 * this.attrs.timing)}))`
+        delay: `@expression(random(500))`
       }
     );
     this.addIncident(bgPositionOneIn, 0);
@@ -94,10 +94,10 @@ export default class ColumnReveal extends HTMLClip {
           }
         },
         {
-          duration: 1000 * this.attrs.timing,
+          duration: 1000,
           selector: ".bg-wrapper",
           easing: this.attrs.easing,
-          delay: `@expression(random(${Math.floor(500 * this.attrs.timing)}))`
+          delay: `@expression(random(500))`
         }
       );
       this.addIncident(bgPositionOneOut, this.attrs.exitStart);

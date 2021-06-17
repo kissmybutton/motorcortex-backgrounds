@@ -2396,7 +2396,7 @@ var BgOpener = /*#__PURE__*/function (_HTMLClip) {
           top: "-".concat(this.attrs.height / 2, "px")
         }
       }, {
-        duration: 1000 * this.attrs.timing,
+        duration: 300,
         selector: ".bg-0",
         easing: this.attrs.easing
       });
@@ -2409,7 +2409,7 @@ var BgOpener = /*#__PURE__*/function (_HTMLClip) {
           top: "-".concat(this.attrs.height / 2, "px")
         }
       }, {
-        duration: 1000 * this.attrs.timing,
+        duration: 300,
         selector: ".bg-1",
         easing: this.attrs.easing
       });
@@ -2424,7 +2424,7 @@ var BgOpener = /*#__PURE__*/function (_HTMLClip) {
           top: "".concat(this.attrs.height / 2, "px")
         }
       }, {
-        duration: 1000 * this.attrs.timing,
+        duration: 300,
         selector: ".bg-wrapper",
         easing: this.attrs.easing
       });
@@ -2439,7 +2439,7 @@ var BgOpener = /*#__PURE__*/function (_HTMLClip) {
           top: "".concat(0, "px")
         }
       }, {
-        duration: 1000 * this.attrs.timing,
+        duration: 300,
         selector: ".bg-wrapper-0",
         easing: this.attrs.easing
       });
@@ -2454,7 +2454,7 @@ var BgOpener = /*#__PURE__*/function (_HTMLClip) {
           top: "".concat(0, "px")
         }
       }, {
-        duration: 1000 * this.attrs.timing,
+        duration: 300,
         selector: ".bg-wrapper-1",
         easing: this.attrs.easing
       });
@@ -2467,7 +2467,7 @@ var BgOpener = /*#__PURE__*/function (_HTMLClip) {
         // }
 
       }, {
-        duration: 1000 * this.attrs.timing,
+        duration: 300,
         selector: ".bg-0",
         easing: this.attrs.easing
       });
@@ -2480,7 +2480,7 @@ var BgOpener = /*#__PURE__*/function (_HTMLClip) {
           top: "-".concat(this.attrs.height / 2, "px")
         }
       }, {
-        duration: 1000 * this.attrs.timing,
+        duration: 300,
         selector: ".bg-1",
         easing: this.attrs.easing
       });
@@ -2533,7 +2533,7 @@ var TwoSidesReveal = /*#__PURE__*/function (_HTMLClip) {
           left: "".concat(this.attrs.width, "px")
         }
       }, {
-        duration: 1000 * this.attrs.timing,
+        duration: 1000,
         selector: ".bg-0",
         easing: this.attrs.easing
       });
@@ -2546,7 +2546,7 @@ var TwoSidesReveal = /*#__PURE__*/function (_HTMLClip) {
           right: "".concat(this.attrs.width, "px")
         }
       }, {
-        duration: 1000 * this.attrs.timing,
+        duration: 1000,
         selector: ".bg-1",
         easing: this.attrs.easing
       });
@@ -2596,10 +2596,10 @@ var ColumnReveal = /*#__PURE__*/function (_HTMLClip) {
           top: "".concat(0, "px")
         }
       }, {
-        duration: 1000 * this.attrs.timing,
+        duration: 1000,
         selector: ".bg-wrapper",
         easing: this.attrs.easing,
-        delay: "@expression(random(".concat(Math.floor(500 * this.attrs.timing), "))")
+        delay: "@expression(random(500))"
       });
       this.addIncident(bgPositionOneIn, 0);
 
@@ -2609,10 +2609,10 @@ var ColumnReveal = /*#__PURE__*/function (_HTMLClip) {
             top: "".concat(this.attrs.height, "px")
           }
         }, {
-          duration: 1000 * this.attrs.timing,
+          duration: 1000,
           selector: ".bg-wrapper",
           easing: this.attrs.easing,
-          delay: "@expression(random(".concat(Math.floor(500 * this.attrs.timing), "))")
+          delay: "@expression(random(500))"
         });
         this.addIncident(bgPositionOneOut, this.attrs.exitStart);
       }
@@ -2661,10 +2661,10 @@ var RowReveal = /*#__PURE__*/function (_HTMLClip) {
           left: "0px"
         }
       }, {
-        duration: 1000 * this.attrs.timing,
+        duration: 1000,
         selector: ".bg-wrapper",
         easing: this.attrs.easing,
-        delay: "@stagger(0, ".concat(Math.floor(500 * this.attrs.timing), ",0)")
+        delay: "@stagger(0, 500,0)"
       });
       this.addIncident(bgPositionOneIn, 0);
 
@@ -2674,10 +2674,10 @@ var RowReveal = /*#__PURE__*/function (_HTMLClip) {
             left: "-".concat(this.attrs.width, "px")
           }
         }, {
-          duration: 1000 * this.attrs.timing,
+          duration: 1000,
           selector: ".bg-wrapper",
           easing: this.attrs.easing,
-          delay: "@stagger(0, ".concat(Math.floor(500 * this.attrs.timing), ",0)")
+          delay: "@stagger(0, 500,0)"
         });
         this.addIncident(bgPositionOneOut, this.attrs.exitStart);
       }
@@ -2736,9 +2736,9 @@ var Grid = /*#__PURE__*/function (_HTMLClip) {
           opacity: 0.7
         }
       }, {
-        duration: 1000 * this.attrs.timing,
+        duration: 1000,
         selector: ".grid",
-        delay: "@expression(random(".concat(Math.floor(1000 * this.attrs.timing), "))")
+        delay: "@expression(random(1000))"
       });
       this.addIncident(gridOpacity, 0);
     }
@@ -2789,10 +2789,10 @@ var ThreeSidesReveal = /*#__PURE__*/function (_HTMLClip) {
           opacity: 1
         }
       }, {
-        duration: 1000 * this.attrs.timing,
+        duration: 1000,
         selector: ".bg-in",
         easing: "easeOutQuart",
-        delay: "@stagger(200, ".concat(Math.floor(500 * this.attrs.timing), ",0)")
+        delay: "@stagger(200, 500,0)"
       });
       this.addIncident(bgWrapperBgColor, 0);
       var bgWrapperOpacity = new Anime.Anime({
@@ -2803,10 +2803,10 @@ var ThreeSidesReveal = /*#__PURE__*/function (_HTMLClip) {
           opacity: 0
         }
       }, {
-        duration: 1000 * this.attrs.timing,
+        duration: 1000,
         selector: ".bg-wrapper-in",
         easing: "easeOutQuart",
-        delay: "@stagger(0, ".concat(Math.floor(500 * this.attrs.timing), ",0)")
+        delay: "@stagger(0, 500,0)"
       });
       this.addIncident(bgWrapperOpacity, 100);
       var bgOne = new Anime.Anime({
@@ -2817,7 +2817,7 @@ var ThreeSidesReveal = /*#__PURE__*/function (_HTMLClip) {
           left: "-".concat(this.attrs.width / 2, "px")
         }
       }, {
-        duration: 1400 * this.attrs.timing,
+        duration: 1400,
         selector: ".bg-0",
         easing: "easeOutQuart"
       });
@@ -2830,7 +2830,7 @@ var ThreeSidesReveal = /*#__PURE__*/function (_HTMLClip) {
           top: "-".concat(this.attrs.height * 0.65, "px")
         }
       }, {
-        duration: 1000 * this.attrs.timing,
+        duration: 1000,
         selector: ".bg-1",
         easing: "easeOutQuart"
       });
@@ -2843,7 +2843,7 @@ var ThreeSidesReveal = /*#__PURE__*/function (_HTMLClip) {
           left: "-".concat(this.attrs.width / 2, "px")
         }
       }, {
-        duration: 1500 * this.attrs.timing,
+        duration: 1500,
         selector: ".bg-2",
         easing: "easeOutQuart"
       });
@@ -2860,7 +2860,7 @@ var ThreeSidesReveal = /*#__PURE__*/function (_HTMLClip) {
           }
         }
       }, {
-        duration: 3600 * this.attrs.timing,
+        duration: 3600,
         selector: ".bg"
       });
       this.addIncident(bgScale, 1000);
@@ -2871,10 +2871,10 @@ var ThreeSidesReveal = /*#__PURE__*/function (_HTMLClip) {
           height: this.attrs.height,
           color: this.attrs.gridColor,
           columns: this.attrs.columns,
-          rows: this.attrs.rows,
-          timing: this.attrs.gridTiming
+          rows: this.attrs.rows
         }, {
-          selector: ".bg"
+          selector: ".bg",
+          duration: this.attrs.gridDuration || 1972
         });
         this.addIncident(Grid$1, 0);
       }
@@ -2896,10 +2896,6 @@ var BgOpenerValidation = {
   bgUrl: {
     optional: false,
     type: "string"
-  },
-  timing: {
-    optional: false,
-    type: "number"
   },
   easing: {
     optional: false,
@@ -2923,10 +2919,6 @@ var TwoSidesRevealValidation = {
     optional: false,
     type: "string"
   },
-  timing: {
-    optional: false,
-    type: "number"
-  },
   easing: {
     optional: false,
     type: "string"
@@ -2944,10 +2936,6 @@ var RowRevealValidation = {
   bgUrl: {
     optional: false,
     type: "string"
-  },
-  timing: {
-    optional: false,
-    type: "number"
   },
   easing: {
     optional: false,
@@ -2974,10 +2962,6 @@ var ColumnRevealValidation = {
   bgUrl: {
     optional: false,
     type: "string"
-  },
-  timing: {
-    optional: false,
-    type: "number"
   },
   easing: {
     optional: false,
@@ -3012,10 +2996,6 @@ var GridValidation = {
   rows: {
     optional: false,
     type: "number"
-  },
-  timing: {
-    optional: false,
-    type: "number"
   }
 };
 var ThreeSidesRevealValidation = {
@@ -3031,10 +3011,6 @@ var ThreeSidesRevealValidation = {
     optional: false,
     type: "string"
   },
-  timing: {
-    optional: false,
-    type: "number"
-  },
   overlayColor: {
     optional: false,
     type: "color"
@@ -3043,8 +3019,8 @@ var ThreeSidesRevealValidation = {
     optional: false,
     type: "boolean"
   },
-  gridTiming: {
-    optional: false,
+  gridDuration: {
+    optional: true,
     type: "number"
   },
   gridColor: {
@@ -3062,7 +3038,7 @@ var ThreeSidesRevealValidation = {
 };
 
 var name = "@kissmybutton/motorcortex-backgrounds";
-var version = "0.0.14";
+var version = "0.1.14";
 
 var index = {
   npm_name: name,
