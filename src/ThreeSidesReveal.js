@@ -104,10 +104,10 @@ export default class ThreeSidesReveal extends HTMLClip {
         }
       },
       {
-        duration: 1000 * this.attrs.timing,
+        duration: 1000,
         selector: ".bg-in",
         easing: "easeOutQuart",
-        delay: `@stagger(200, ${Math.floor(500 * this.attrs.timing)},0)`
+        delay: `@stagger(200, 500,0)`
       }
     );
     this.addIncident(bgWrapperBgColor, 0);
@@ -121,10 +121,10 @@ export default class ThreeSidesReveal extends HTMLClip {
         }
       },
       {
-        duration: 1000 * this.attrs.timing,
+        duration: 1000,
         selector: ".bg-wrapper-in",
         easing: "easeOutQuart",
-        delay: `@stagger(0, ${Math.floor(500 * this.attrs.timing)},0)`
+        delay: `@stagger(0, 500,0)`
       }
     );
     this.addIncident(bgWrapperOpacity, 100);
@@ -139,7 +139,7 @@ export default class ThreeSidesReveal extends HTMLClip {
         }
       },
       {
-        duration: 1400 * this.attrs.timing,
+        duration: 1400,
         selector: ".bg-0",
         easing: "easeOutQuart"
       }
@@ -156,7 +156,7 @@ export default class ThreeSidesReveal extends HTMLClip {
         }
       },
       {
-        duration: 1000 * this.attrs.timing,
+        duration: 1000,
         selector: ".bg-1",
         easing: "easeOutQuart"
       }
@@ -173,7 +173,7 @@ export default class ThreeSidesReveal extends HTMLClip {
         }
       },
       {
-        duration: 1500 * this.attrs.timing,
+        duration: 1500,
         selector: ".bg-2",
         easing: "easeOutQuart"
       }
@@ -193,7 +193,7 @@ export default class ThreeSidesReveal extends HTMLClip {
         }
       },
       {
-        duration: 3600 * this.attrs.timing,
+        duration: 3600,
         selector: ".bg"
       }
     );
@@ -205,11 +205,11 @@ export default class ThreeSidesReveal extends HTMLClip {
           height: this.attrs.height,
           color: this.attrs.gridColor,
           columns: this.attrs.columns,
-          rows: this.attrs.rows,
-          timing: this.attrs.gridTiming
+          rows: this.attrs.rows
         },
         {
-          selector: ".bg"
+          selector: ".bg",
+          duration: this.attrs.gridDuration || 1972
         }
       );
 

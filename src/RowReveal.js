@@ -80,10 +80,10 @@ export default class RowReveal extends HTMLClip {
         }
       },
       {
-        duration: 1000 * this.attrs.timing,
+        duration: 1000,
         selector: ".bg-wrapper",
         easing: this.attrs.easing,
-        delay: `@stagger(0, ${Math.floor(500 * this.attrs.timing)},0)`
+        delay: `@stagger(0, 500,0)`
       }
     );
     this.addIncident(bgPositionOneIn, 0);
@@ -95,10 +95,10 @@ export default class RowReveal extends HTMLClip {
           }
         },
         {
-          duration: 1000 * this.attrs.timing,
+          duration: 1000,
           selector: ".bg-wrapper",
           easing: this.attrs.easing,
-          delay: `@stagger(0, ${Math.floor(500 * this.attrs.timing)},0)`
+          delay: `@stagger(0, 500,0)`
         }
       );
       this.addIncident(bgPositionOneOut, this.attrs.exitStart);

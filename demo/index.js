@@ -62,7 +62,6 @@ const BgOpener = new Plugin.BgOpener(
     height: 288,
     bgUrl:
       "https://kissmybutton.github.io/motorcortex-backgrounds/demo/assets/kissmybutonbg.jpg",
-    timing: 0.3,
     easing: "easeInQuad",
     exitStart: 2000
   },
@@ -77,7 +76,6 @@ const TwoSidesReveal = new Plugin.TwoSidesReveal(
     height: 288,
     bgUrl:
       "https://kissmybutton.github.io/motorcortex-backgrounds/demo/assets/kissmybutonbg.jpg",
-    timing: 1,
     easing: "easeInQuad"
   },
   {
@@ -123,10 +121,9 @@ const ThreeSidesReveal = new Plugin.ThreeSidesReveal(
     height: 288,
     bgUrl:
       "https://kissmybutton.github.io/motorcortex-backgrounds/demo/assets/bg3.jpg",
-    timing: 1,
     overlayColor: "#ff0000",
-    grid: true,
-    gridTiming: 1,
+    grid: false,
+    // gridDuration: 5000,
     gridColor: "#000",
     columns: 6,
     rows: 4
@@ -157,4 +154,4 @@ clip.addIncident(ColumnReveal, 0);
 clip.addIncident(ThreeSidesReveal, 0);
 clip.addIncident(Grid, 0);
 
-new Player({ clip });
+new Player({ clip, timeFormat: "ms" });
